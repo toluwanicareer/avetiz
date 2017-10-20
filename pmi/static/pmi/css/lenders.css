@@ -1,0 +1,489 @@
+#lenderBody{
+	padding: 0 !important; 
+	margin: 0 !important;
+}
+
+.adSection{
+	background-color: #F7F7F7;
+	height: 93px;
+}
+
+.adSection img{
+	margin: auto;
+}
+
+
+.navbar{
+	background-color: #fff;
+	margin-bottom: 0 !important;
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+}
+
+.navbar .container{
+	width: 73.3% !important;
+}
+
+.lendersH{
+	padding:10px 0;
+	background-color: #EDEDED;
+}
+
+.lendersH .container{
+	width: 74.6% !important;
+}
+
+main a{
+ color:#D4AF37 !important;
+}
+
+main .container{
+	width: 75% !important;
+}
+
+.lendersH button{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #D4AF37;
+	border:none;
+}
+
+.lendersH .input-group{
+	margin:0 5px;
+}
+
+.lendersH input[type="text"]{
+	padding-bottom: 3px;
+	padding-left: 5px;
+}
+
+.lendersH input[type="range"]{
+	margin:15px 5px 20px 5px;
+	width: 95%;
+}
+
+.lendersH .lhBorderRight{
+	border-right: 1px solid #ccc;
+	height: 100%;
+	padding-left: 20px;
+}
+
+.lendersH .fa{
+	color: #fff;
+}
+
+.lendersH button:hover{
+	background-color: #0e5ba3;
+}
+
+
+main{
+	padding: 10px 0;
+	background-color: #f7f7f7;
+}
+
+.lSearchFirst{
+	font-size: 20px;
+}
+
+.lSearchSecond{
+	font-size: 16px;
+	color: #A09794;
+}
+
+.lSearchInfo{
+	width: 100%;
+	margin:auto;
+}
+
+.lendSearchInfo{
+	display: block;
+	margin: 7px 0;
+}
+
+
+.aDColor{
+   color:#252596;
+}
+
+.calculators a .fa{
+	display: inline-block;
+}
+
+.aDisclosure{
+	font-size: 16px;
+	top:15px;
+	position: relative;
+}
+
+.lblack{
+	color:#000;
+}
+
+.lSortandPageRow{
+	margin-top:20px !important;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #D4AF37;
+	width: 96.9%;
+	margin:auto;
+}
+
+.removeLeftPadding{
+	padding-left: 0px !important;
+}
+
+.lSortandPageRow .dropdown{
+	margin-top:7px;
+}
+
+.pagination{margin:0 !important;}
+.pagination>li>a, .pagination>li>span { border-radius: 50% !important;margin: 0 5px;} 
+
+.pagination>.active>a, .pagination>.active>a:focus, .pagination>.active>a:hover, .pagination>.active>span, .pagination>.active>span:focus, .pagination>.active>span:hover {
+    background-color: #464646;
+    border-color:#464646;
+}
+
+
+.cardsRow{
+	margin: 15px 0;
+}
+
+.card{
+	background-color:#fff;
+	border-radius: 4px;
+	height: auto;
+	width: 100%;
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.25);
+    -moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.25);	
+    transition: all .5s;
+    margin:15px 0;
+}
+
+.card:hover{
+	box-shadow: 0 4px 4px 0 rgba(0,0,0,0.25);
+    -moz-box-shadow: 0 4px 4px 0 rgba(0,0,0,0.25);
+}
+
+.firstCardCol{
+	border-right: 1px solid #ccc;
+	padding:20px 20px 20px 30px;
+}
+
+.secondCardCol{
+	padding:20px 30px 20px 30px;
+}
+
+.btn-block{
+	width: 85% !important;
+}
+
+.secondCardCol button{
+	background-color: #D4AF37;
+	border:none;
+	color: #fff;
+	margin-top:15px;
+	transition: all .5s;
+}
+
+.secondCardCol button:hover{
+	background-color: #e5ba39;
+	color: #fff;
+}
+
+.card span{
+	display: block;
+}
+
+.apr{
+	font-size: 23px;
+}
+
+.fixedAmt{
+	font-size: 20px;
+}
+
+.fixPhn{
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.secondPagiRow{
+	border-bottom: 1px solid #D4AF37;
+	padding-bottom: 15px;
+	width: 100%;
+	margin: auto;
+}
+
+.advertDisclosure{
+	margin:30px 0;
+	padding-top: 20px;
+	width: 96.9%;
+	margin: auto;
+}
+
+.mortgageTrends{
+	height: auto;
+	border:1px solid #ccc;
+	border-radius: 4px;
+	background-color: #fff;
+	margin-top:40px;
+}
+
+.mortgageTrends{
+	color: #666666;
+}
+
+.mortgageTrends span{
+	display: block;
+	padding-right: 15px;
+	padding-left: 15px;
+
+}
+
+.mTTrends{
+	background-color: #f7f7f7;
+}
+
+.mortgageTrends .mortgageCity{
+	padding-top: 10px;
+	font-size: 16px;
+}
+
+.mortgageTrends .mortgageDate{
+	padding-top: 5px;
+	padding-bottom: 3px;
+}
+
+.mRow{
+	padding-top:15px;
+}
+
+.mPerc{
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.mortgageTrends p{
+	font-size: 16px;
+}
+
+
+.calculators{
+	height: auto;
+	border:1px solid #ccc;
+	border-radius: 4px;
+	background-color: #fff;
+	margin-top:40px;
+	border-top:3px solid #707271;
+}
+
+.calculators{
+	font-size: 16px;
+}
+
+.calculators h4{
+	text-align: center;
+	border-bottom:1px solid #232323;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	margin-top:0;
+	background-color: #F7F7F7;	
+}
+
+.calculators p a{
+	font-size: 13px;
+	margin-left: 8px;
+}
+
+.calculators .fa{
+	padding-left: 10px;
+	padding-right: 10px;
+	
+}
+
+.veteranHomeBuyer{
+	height: auto;
+	border:1px solid #ccc;
+	border-radius: 4px;
+	background-color: #fff;
+	margin-top:40px;
+	border-top:3px solid #707271;
+}
+
+.veteranHomeBuyer h4{
+	text-align: center;
+	border-bottom:1px solid #232323;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	margin-top:0;
+	background-color: #F7F7F7;	
+	
+}
+
+.veteranHomeBuyer p a{
+	margin-left: 8px;
+}
+
+.veteranHomeBuyer .fa{
+	padding-left: 10px;
+	padding-right: 10px;
+
+}
+
+.mortgageRateNews{
+	height: auto;
+	border:1px solid #ccc;
+	border-radius: 4px;
+	background-color: #fff;
+	margin-top:40px;
+	border-top:3px solid #707271;
+}
+
+.mortgageRateNews h4{
+	text-align: center;
+	border-bottom:1px solid #232323;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	margin-top:0;
+	background-color: #F7F7F7;	
+}
+
+.mortgageRateNews p{
+	padding: 8px;
+}
+
+
+/* Range Styles */
+input[type=range] {
+  height: 30px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000;
+  background: #0074e4;
+  border-radius: 5px;
+  border: 0px solid #000000;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000;
+  border: 0px solid #000000;
+  height: 23px;
+  width: 23px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -9px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #3071A9;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 1px 1px 1px #000000;
+  background: #3071A9;
+  border-radius: 5px;
+  border: 0px solid #000000;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000;
+  border: 0px solid #000000;
+  height: 23px;
+  width: 13px;
+  border-radius: 5px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #3071A9;
+  border: 0px solid #000000;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px #000000;
+}
+input[type=range]::-ms-fill-upper {
+  background: #3071A9;
+  border: 0px solid #000000;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px #000000;
+}
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 1px 1px 1px #000000;
+  border: 0px solid #000000;
+  height: 23px;
+  width: 23px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #3071A9;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #3071A9;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 1400px) {
+	main .container{
+		width: 100%;
+	}
+
+	.lendersH .container{
+		width: 100%;
+	}
+
+	.navbar .container{
+		width: 98%
+	}
+}
+
+@media only screen and (max-width: 1100px) {
+  .calculators p a{
+	  font-size: 11px;
+	}
+
+   .veteranHomeBuyer p {
+   	font-size: 11px;
+   }
+
+
+   .lhBorderRight {
+   	 border:none!important;
+   }
+}
+
+@media only screen and (max-width: 1280px) {
+	.veteranHomeBuyer p {
+   	font-size: 11px;
+   }
+}
+
+@media only screen and (max-width: 990px) {
+	main .container{
+		width: 100%;
+	}
+}
+

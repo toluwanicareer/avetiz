@@ -1,0 +1,306 @@
+body{
+  font-family: 'Raleway', sans-serif;
+  padding-top: 100px;
+}
+
+
+/*Navigation Bar*/
+.navbar{
+  background: #fff !important;
+  border-bottom: none;
+}
+
+.navbar-brand{
+
+}
+
+.navbar-brand img{
+  max-width: 100px;
+  position: relative;
+  left: -17px;
+  top:-15px;
+}
+
+
+/*Title Section*/
+.title{
+  margin:30px 0
+}
+
+.title h1{
+   line-height:1.4em;
+   position: relative;
+   left:-13px;
+}
+
+.title .cName{
+   font-size:120%;
+   font-weight: bold;
+   color: #D4AF37;
+
+}
+
+
+/*Search Box css*/
+
+.custom-search-input{
+    padding: 8px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+    position: relative;
+    left: -13px;
+}
+
+.custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+.custom-search-input input:focus{
+  box-shadow: none;
+}
+
+.custom-search-input button{
+    margin: 0 24px 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-radius:6px !important;
+   
+}
+
+.custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    height: 45px;
+    background-color: #5bc0de;
+    color:#fff;
+}
+
+.custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
+
+
+
+/* carousel */
+.media-carousel 
+{
+  margin-bottom: 0;
+  margin-top: 6px;
+  width: 100%;
+}
+/* Previous button  */
+.media-carousel .carousel-control.left 
+{
+  left: -12px;
+  background-image: none;
+  background: none repeat scroll 0 0 #222222;
+  border: 4px solid #FFFFFF;
+  border-radius: 23px 23px 23px 23px;
+  height: 40px;
+  width : 40px;
+  margin-top: 100px
+}
+/* Next button  */
+.media-carousel .carousel-control.right 
+{
+  right: -12px !important;
+  background-image: none;
+  background: none repeat scroll 0 0 #222222;
+  border: 4px solid #FFFFFF;
+  border-radius: 23px 23px 23px 23px;
+  height: 40px;
+  width : 40px;
+  margin-top: 100px;
+
+}
+/* Changes the position of the indicators */
+.media-carousel .carousel-indicators 
+{
+  right: 50%;
+  top: auto;
+  bottom: 0px;
+  margin-right: -19px;
+}
+/* Changes the colour of the indicators */
+.media-carousel .carousel-indicators li 
+{
+  background: #c0c0c0;
+}
+.media-carousel .carousel-indicators .active 
+{
+  background: #333333;
+}
+.media-carousel img
+{
+  width: 100%;
+  height: 300px;
+}
+
+.featuredImages{
+  margin:80px 0 40px 0;
+  background: #fff;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.featuredImages .container{
+   padding: 0 5px !important;
+}
+
+.featuredImages .carousel .col-sm-4{
+  padding: 0 5px !important;
+}
+
+
+
+/* End carousel for featured images */
+
+/*Knowledge Center*/
+
+
+.kCenter h4{
+  position: relative;
+  left:-13px;
+  margin-bottom: 15px;
+}
+
+.firstBox{
+  background-color: #f9f9f9;
+  height: 400px;
+}
+
+.secondBox{
+  background-color: #f5f5e5;
+  height: 400px;
+}
+
+.thirdBox{
+  background-color: #f7f7f7;
+  height: 400px;
+}
+
+/*Sign Up Section*/
+.services{
+  background-color: #f9f9f9;
+}
+
+.logo-small {
+    color: #424242;
+    font-size: 50px;
+}
+
+.glyphicon {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+.signUp{
+  margin-bottom: 60px;
+  padding: 10px;
+}
+
+.signUp h4{
+  margin-bottom: 15px;
+  position: relative;
+  left: -13px;
+}
+
+.rSignUp{
+  padding: 153px 50px;
+  background: grey;
+}
+
+.rSignUp .glyphicon{
+  color: #D4AF37;
+}
+
+.rSignUp p{
+  padding: 0 15px;
+}
+
+/*Our Vision Section*/
+.vision{
+  margin: 80px 0;
+}
+
+.vision h4{
+  margin-bottom: 15px;
+  position: relative;
+  left:-13px;
+}
+
+.visionContainer{
+  background-color:#f9f9f9;
+  height: 400px;
+  width:100%;
+}
+  
+
+
+
+
+
+/*Cartoon Section*/
+
+.cartoon img{
+  width:100%;
+}
+
+.cartoon .cityIn{
+  border-bottom: 3px dotted #D4AF37;
+}
+
+
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+
+  .custom-search-input{
+    padding: 3px;
+    border: solid 1px #E4E4E4;
+    border-radius: 6px;
+    background-color: #fff;
+     position: relative;
+    left: 0px;
+}
+
+
+.title h1{
+   position: relative;
+   left:0px;
+}
+.borderless li{
+  line-height: 1.3em;
+}
+
+
+.locator{
+  padding-left: 0;
+}
+
+hr {
+    width: 0px;
+    height: 0px;
+    }
+
+.navbar-brand img{
+  max-width: 80px;
+  position: relative;
+  top:-13px;
+}
+
+    
+  }

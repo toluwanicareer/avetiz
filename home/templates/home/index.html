@@ -1,0 +1,389 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AvetiZ</title>
+  <meta charset = "utf-8">
+  <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+  <meta name = "viewport" content = "width = device width, initial-scale = 1">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'home/css/styles.css'%}">
+  <link rel="stylesheet" type="text/css" href="{%  static 'property/css/footer.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'home/css/svg.css' %} ">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link rel="shortcut icon" sizes="76x76" type="image/x-icon" href="img/avetiz4.png" />
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC8TvKHQ-rUklU5OsD6Oq73pMG1fJO9iR8" ></script>
+  <script type="text/javascript" src="{% static 'home/js/money.js' %}"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'property/css/lightslider.css' %}">
+
+</head>
+<body onload="geoFindMe()">
+
+
+
+<!-- Navigation Bar Section -->
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><img class ="img-responsive" src="img/avetiz-solid.png"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Sign Up</a></li>
+         <li><a href="#">Help</a></li>
+         <li><a href="#" data-toggle="modal" data-target="#search" ><i class="fa fa-map-marker fa-2x locator" aria-hidden="true"></i></a></li>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!--- Modal View Section-->	
+	<div id="search" class="modal fade" role="dialog">
+					<div class="modal-dialog">
+
+    <!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title" id="city">.</h4>
+							</div>
+							<div class="modal-body">
+							
+								<p>We Use Location to customize the information you see.</p>
+								
+								<input type="text" id="pac-input" class="form-control" placeholder="Change your location"  />
+								<!--div class="pac-container"></div-->
+								
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+
+					</div>
+	</div>
+	
+	<!--End of Model Section-->
+
+<section class="title">
+  <div class="container">
+  <div class="row">
+    <div class="col-md-7 col-sm-12">
+      <h1><span class="cName">AvetiZ</span> offers a sophisticated platform which provides highly flexible solutions.
+      </h1>  
+    </div>
+    </div>
+  </div>
+</section>
+  
+
+<!-- Search Box Section -->
+<div class="container">
+	<form method="post" action="/property/searchpage/">
+{% csrf_token %}
+  <div class="row" autofocus>
+        <div class="col-md-12">
+            <div class="custom-search-input">
+                <div class="input-group col-md-12">
+
+                    {{searchform.query}}
+                    {{searchform.city}}
+                    {{searchform.state}}
+                    {{searchform.country}}
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="submit">
+                            Search
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+  </div>
+</form>
+</div>
+
+
+
+<!-- Featured Images Section -->
+<div class="js-feature">
+<div class="container">
+<div class="row">
+<div class="col-md-2 col-md-push-5 svgcontainer ">
+  <div class="loader loader--style1 " title="0">
+    <svg width="200px"  height="200px"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid" class="lds-ball2" style="background: none;">
+    <g ng-attr-transform="translate(0,{{config.dy}})" transform="translate(0,-7.5)">
+      <circle cx="50" ng-attr-cy="{{config.cy}}" r="0.605904" ng-attr-fill="{{config.c1}}" cy="41" fill="#ff727d" transform="rotate(344.214 50.0001 50.0001)">
+        <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="0 50 50;360 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform>
+        <animate attributeName="r" calcMode="spline" values="0;15;0" keyTimes="0;0.5;1" dur="1" keySplines="0.2 0 0.8 1;0.2 0 0.8 1" begin="0s" repeatCount="indefinite"></animate>
+      </circle>
+      <circle cx="50" ng-attr-cy="{{config.cy}}" r="14.3941" ng-attr-fill="{{config.c2}}" cy="41" fill="#ffd391" transform="rotate(524.214 50 50)">
+        <animateTransform attributeName="transform" type="rotate" calcMode="linear" values="180 50 50;540 50 50" keyTimes="0;1" dur="1s" begin="0s" repeatCount="indefinite"></animateTransform>
+        <animate attributeName="r" calcMode="spline" values="15;0;15" keyTimes="0;0.5;1" dur="1" keySplines="0.2 0 0.8 1;0.2 0 0.8 1" begin="0s" repeatCount="indefinite"></animate>
+      </circle>
+    </g>
+  </svg>
+  </div>
+</div>
+</div></div>
+{% include 'home/includes/partial_feature.html' %}
+</div>
+<!-- Knoledge Center Section -->
+<section class="kCenter">
+  
+ <div class = "container">
+  <div class="row">
+    <div class="col-md-12">
+     <h4><strong>Knowledge Center</strong></h4>
+     </div>
+    </div>
+
+  <div class="row">
+    <div class="col-sm-4 firstBox"></div>
+    <div class="col-sm-4 secondBox"></div>
+    <div class="col-sm-4 thirdBox"></div>
+  </div>
+  </div>
+</section>
+
+<section class="lenderSection">
+  <div class="container">
+    <p>Valuable tools and information</p>
+    <h2>Local Mortgage Lenders</h2>
+    <p>Get today's mortgage rates, connect with local lenders, and stay informed.</p>
+    <form action="{%url 'pmi:pmilist' %}">
+    <div class="input-group">
+      {{pmiform.pmi_query}}
+      {{pmiform.pmi_state}}
+      {{pmiform.pmi_country}}
+      {{pmiform.pmi_city}}
+     <span class="input-group-btn ">
+    <button class="btn btn-lg lenderBtn" type="submit" required><i class="fa fa-search" aria-hidden="true"></i> Find a Lender</button>
+      </span>
+    </div>
+    </form>
+
+  </div>
+  
+</section>
+
+
+<!-- Footer Cartoon Section -->
+
+ <section class="cartoon">
+ <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+          <h2><strong>AvetiZ</strong> has partners in <span class="cityIn" id="state"></span> and several locations around the World.</h2>
+      </div>
+    </div>
+  </div>
+  <img src="https://www.blackstone.com/images/default-source/default-album/skyline-sketch-dark.png?sfvrsn=2" >
+ 
+</section>
+
+
+
+
+<!-- Footer Section built by a backender -->
+<div class="divider-5"></div>
+<hr>
+
+<div class="container"> 
+<div class="footer">
+  
+    <div class="row">
+      
+      <div class="col-sm-4 more-space"><!--  1st column begins-->
+      
+        <!--h4 class="column-header text-justify head"> AvetiZ </h2-->
+        
+        
+        <div class="more-space">
+      
+				<div class="col-md-8 mavelous ">
+					
+					
+					<div class="form-group">
+						
+						<div id="google_translate_element"></div><script type="text/javascript">
+								function googleTranslateElementInit() {
+										new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,de,en,fr,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+										}
+									</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+					</div>	
+			
+				</div>
+             
+        <div class="col-sm-8 mavelous currency">
+          
+          <div class="form-group">
+          
+            <select name="currency_code" class="form-control js-curr tolu">
+                <option value="NGN">NGN</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR </option>
+                <option value="CAD">CAD</option>
+                <option value="GBP">GBP</option>
+                
+            </select>
+          
+          </div>
+    
+        </div>
+
+        
+        <div class="divider-10"></div>
+        
+        <div class="col-sm-12 ">
+        
+          <ul class="list-group text-justify  borderless list-inline">
+              <li class="list-group-item">Terms</li>
+              <li class="list-group-item">Privacy</li>
+              <li class="list-group-item">Site Map</li>
+              <li class="list-group-item"><span><i class="fa fa-facebook-official fa-1x"></i></span></li>
+              <li class="list-group-item"><i class="fa fa-linkedin fa-1x"></i></li>
+              <li class="list-group-item"><i class="fa fa-instagram fa-1x" aria-hidden="true"></i></li>
+          </ul>
+        
+        </div>
+        
+  
+        
+        
+        
+        </div><!--more space div add margin top -->
+        
+      
+      </div><!-- end of 1st column-->
+      
+      
+      <div class="col-sm-4 more-space"><!--  2nd column begins-->
+      
+         
+          
+          <div class="more-space">
+          
+           <h4 class="column-header text-justify head"> Sign Up </h4>
+          
+          <ul class="list-group text-justify mavelous borderless">
+            <li class="list-group-item">About</li>
+            <li class="list-group-item">Help</li>
+            <li class="list-group-item">Investors</li>
+            <li class="list-group-item">Partners</li>
+            <li class="list-group-item">Cities</li>
+            <li class="list-group-item">Policies</li>
+            <li class="list-group-item">Countries</li>
+            <!--li class="list-group-item">About Us</li-->
+            
+            
+            
+          </ul>
+          
+          </div>
+      
+      
+      </div><!-- end of 2nd column-->
+    
+    
+      
+      <div class="col-sm-3 more-space"><!--  3nd column begins-->
+      
+          
+          
+          
+          
+          <div class="more-space">
+			<h4 class="column-header text-justify head "> Help </h4>
+          <ul class="list-group text-justify mavelous borderless">
+            <li class="list-group-item">Safety</li>
+            <li class="list-group-item">Media</li>
+            <li class="list-group-item"><a href="how-it-works.html">How it Works</a></li>
+            <li class="list-group-item"><a href="intelligent-investing.html">Intelligent Investing</a></li>
+            <li class="list-group-item"><a href="insight.html">Insight</a></li>
+            <!--li class="list-group-item">Local Jobs</li-->
+          </ul>
+          
+          </div>
+      
+    
+      
+      </div><!-- end of 3nd column-->
+      
+      <div class="col-sm-1 ">
+		<!--div class="divider-icon"></div-->
+        <div class="col-sm-push-3" >
+		
+                                 
+        <div id="search" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+    <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Lagos</h4>
+              </div>
+              <div class="modal-body">
+              
+                <p>We Use Location to customize the information you see.</p>
+                
+                <input type="text" id="pac-input" class="form-control" placeholder="Change your location"  />
+                <!--div class="pac-container"></div-->
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+        </div>
+      
+      </div>
+	</div><!--row -->
+	</div> 
+    
+  </div><!--container --> 
+  <hr>
+      
+   <div class="container">
+     <div class="row">
+      <div class="col-sm-6">
+      <span><p class="head">AvetiZ is a service mark of AvetiZ Corp &copy; 2017. All Rights Reserved.</p></span>
+      </div>
+      
+        <div class="col-sm-4 border-header"><!-- android ios download section -->
+           <ul class="list-group text-center borderless list-inline">
+            <li class="list-group-item"><img src="img/google2.png" class="img-responsive "></li>
+            <li class="list-group-item"><img src="img/ios2.png" class="img-responsive "></li> 
+          </ul>  
+       </div>
+       </div>
+     </div>
+
+<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="js/main.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="{% static 'home/js/avetiz.js' %}"></script>
+<script>
+
+</script>
+</body>
+</html>

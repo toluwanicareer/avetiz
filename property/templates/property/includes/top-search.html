@@ -1,0 +1,62 @@
+<ul class="nav navbar-nav navbar-left">
+	      
+	    <li>
+	    <form class="navbar-form" id ="form-buscar" method="post" action="{% url 'property:searchpage'%}">
+	    {% csrf_token %} 
+	        <div class="form-group" style="display:inline;">
+	          <div class="input-group" style="display:table;">
+	            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+	           {{topform.search}}
+	            {{topform.query}}
+              {{topform.city}}
+              {{topform.state}}
+              {{topform.country}}
+              {{topform.bedno}}
+              {{topform.bathno}}
+              {{topform.propertytype}}
+	          </div>
+	        </div>
+	      
+	      </li>     
+	      <li class="dropdown">
+	      {% if  resquest.POST %}
+	        <a href="#" class="dropdown-toggle" id="bed" data-toggle="dropdown">{{request.session.search.bedno}} <b class="caret"></b></a>
+	        {% else %}
+	         <a href="#" class="dropdown-toggle" id="bed" data-toggle="dropdown">Any Bed <b class="caret"></b></a>
+	         {%endif%}
+	        <ul class="dropdown-menu">
+	          <li><a href="#" >Any</a></li>
+	          <li><a href="#" onclick="setBed('1')">1</a></li>
+	          <li><a href="#" onclick="setBed('2')">2</a></li>
+	          <li><a href="#" onclick="setBed('more')">3+</a></li>
+	          </ul>
+	      </li>
+
+	      <li class="dropdown">
+	        <a href="#" class="dropdown-toggle" id="bath" data-toggle="dropdown">Any Baths <b class="caret"></b></a>
+	        <ul class="dropdown-menu">
+	          <li><a href="#">Any</a></li>
+	          <li><a onclick="setBath(1)" href="#">1</a></li>
+	          <li><a href="#" onclick="setBath(2)">2</a></li>
+	          <li><a href="#" onclick="setBath('more')">3+</a></li>
+	        </ul>
+	      </li>
+
+	      <li class="dropdown">
+	        <a href="#" class="dropdown-toggle" id="type" data-toggle="dropdown">Any Property Type <b class="caret"></b></a>
+	      	<ul role="menu" class="dropdown-menu">
+				
+				<li><a  href="#">Any</a></li>
+	          	<li><a  onclick="setType('land')" href="#">Land</a></li>
+	          	<li><a  onclick="setType('house')" href="#">House</a></li>
+	          	
+				
+			</ul>
+	      </li>
+
+	     
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><button name="topform" value="toluwashere" type="submit" class="btn btn-default">Search</button></li>
+	      </ul> 
+</form>

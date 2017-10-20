@@ -1,0 +1,59 @@
+{% extends 'help/base.html' %}
+{% load static %}
+{% block content %}
+<div class="divider-5"></div>
+<div class="container ">
+		<div class="row">
+			<form method="post" action="/help/request">
+				{% csrf_token %}
+			<div class="col-md-12 topsearch ">
+				<div class="col-md-6 ">
+					{% if error %}
+							<p><font color="#ff0000">{{error}}</font></p>
+							{% endif %}
+					<div class="custom-search-input help-search">
+						<div class="input-group col-md-12">
+							{{ form2.help }}
+							<span class="input-group-btn help-search">
+								<button class="btn btn-info btn-lg" type="submit">
+									<i class="fa fa-search"></i>
+								</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			</form>
+			
+		</div>
+</div>
+<div class="divider-5"></div>
+<div class="jumbotron complainJumbo " autofocus >
+
+<div class="container">
+    <div class="row">
+		<div class="col-md-5 col-md-push-1 headform">
+		<h4>Submit Your Request</h4>
+		</div>
+	</div>
+	<div class="row">
+	<form class="form" method="post">
+		{% csrf_token %}
+		 
+		<div class="col-md-6 col-md-push-1 complaintform" >
+			{% for field in form %}
+			<div class="form-group">
+			<p><font color="red">{{ field.errors }}</font></p>
+			{{ field.label_tag }}
+			{{ field }}
+			<span style="color:#C0C0C0">{{field.help_text}}</span>
+			</div>
+			{% endfor %}
+			<hr>
+			<button class="btn btn-primary form-control pull-right">Submit</button>
+		</div>
+	</div>
+	</form>
+</div>
+</div>
+{% endblock %}

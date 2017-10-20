@@ -1,0 +1,573 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AvetiZ</title>
+  <meta charset = "utf-8">
+  <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+  <meta name = "viewport" content = "width = device width, initial-scale = 1">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'home/css/styles.css'%}">
+  <link rel="stylesheet" type="text/css" href="{%  static 'property/css/footer.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+  <link rel="shortcut icon" sizes="76x76" type="image/x-icon" href="img/avetiz4.png" />
+  <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC8TvKHQ-rUklU5OsD6Oq73pMG1fJO9iR8" ></script>
+
+</head>
+<body onload="geoFindMe()">
+<!-- Navigation Bar Section -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"><img class ="img-responsive" src="img/avetiz-solid.png"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Sign Up</a></li>
+         <li><a href="#">Help</a></li>
+         <li><a href="#" data-toggle="modal" data-target="#search" ><i class="fa fa-map-marker fa-2x locator" aria-hidden="true"></i></a></li>
+        
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!--- Modal View Section-->	
+	<div id="search" class="modal fade" role="dialog">
+					<div class="modal-dialog">
+
+    <!-- Modal content-->
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title" id="city">.</h4>
+							</div>
+							<div class="modal-body">
+							
+								<p>We Use Location to customize the information you see.</p>
+								
+								<input type="text" id="pac-input" class="form-control" placeholder="Change your location"  />
+								<!--div class="pac-container"></div-->
+								
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+
+					</div>
+	</div>
+	
+	<!--End of Model Section-->
+
+<section class="title">
+  <div class="container">
+  <div class="row">
+    <div class="col-md-7 col-sm-12">
+      <h1><span class="cName">AvetiZ</span> offers a sophisticated platform which provides highly flexible solutions.
+      </h1>  
+    </div>
+    </div>
+  </div>
+</section>
+  
+
+<!-- Search Box Section -->
+<div class="container">
+<form method="post" action="/property/searchpage/">
+{% csrf_token %}
+	<div class="row">
+        <div class="col-md-12">
+            <div class="custom-search-input">
+                <div class="input-group col-md-12">
+
+                    {{searchform.query}}
+                    {{searchform.city}}
+                    {{searchform.state}}
+                    {{searchform.country}}
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="submit">
+                            Search
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+	</div>
+</form>
+</div>
+
+
+
+<!-- Featured Images Section -->
+
+<section class="featuredImages">
+
+
+ <div class="row">
+ <div class="container">
+ <div class="row">
+  <div class="col-md-12">
+   <h4><strong>Featured Properties</strong></h4>
+   </div>
+  </div>
+
+  <div class='row'>
+    <div class='col-md-12'>
+      <div class="carousel slide media-carousel" id="media">
+        <div class="carousel-inner">
+          <div class="item active">
+            <div class="row">
+              <div class="col-sm-4">
+                <a class="thumbnail" href="#"><img alt="" src="https://si.wsj.net/public/resources/images/OB-QY906_hotwea_HD_20111212143922.jpg"></a>
+              </div>          
+              <div class="col-sm-4">
+                <a class="thumbnail" href="#"><img alt="" src="https://deyoungproperties.com/wp-content/uploads/2016/04/DeYoung-Properties-Solar-Panels-3-1024x576.jpg"></a>
+              </div>
+              <div class="col-sm-4">
+                <a class="thumbnail" href="#"><img alt="" src="http://d3d6208u46n5q9.cloudfront.net/sothebys/uploads/listings/2017/05/790eb52815fa25a_t_w_1280_h_1024.jpg"></a>
+              </div>  
+                 
+            </div>
+          </div>
+          <div class="item">
+            <div class="row">
+              <div class="col-sm-4">
+                <a class="thumbnail" href="#"><img alt="" src="http://spraytechja.com/v1/wp-content/uploads/2013/04/Beautiful-Houses-HD-Wallpapers-2.jpg"></a>
+              </div>          
+              <div class="col-sm-4">
+                <a class="thumbnail" href="#"><img alt="" src="https://www.e-architect.co.uk/images/jpgs/south_africa/brian-road-residence-n260413-10.jpg"></a>
+              </div>
+              <div class="col-sm-4">
+                <a class="thumbnail" href="#"><img alt="" src="https://dmacpropertyservices.com/wp-content/uploads/2014/06/Kerala-Style-Home-Wallpapers-HD-620x412.jpg"></a>
+              </div>    
+             
+            </div>
+          </div>
+          <div class="item">
+            <div class="row">
+              <div class="col-sm-4 ">
+                <a class="thumbnail" href="#"><img alt="" src="http://www.markovichteam.com/briefcase/132331_4212017104836AM51656.jpg"></a>
+              </div>          
+              <div class="col-sm-4 ">
+                <a class="thumbnail" href="#"><img alt="" src="http://4.bp.blogspot.com/-zvqo6b3nAts/VIXHIwkXbmI/AAAAAAABJP4/moZfEINVYt0/s1600/california5.jpg"></a>
+              </div>
+              <div class="col-sm-4 ">
+                <a class="thumbnail" href="#"><img alt="" src="http://cdn.propertylogic.net/property/7/clients/213/properties/50055033/IMG_50055033_20_hd.jpg"></a>
+              </div>    
+              
+            </div>
+          </div>
+        </div>
+        <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
+        <a data-slide="next" href="#media" class="right carousel-control">›</a>
+      </div>                          
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+</section>
+
+<!-- Container (Services Section) -->
+
+<section class="signUp">
+<div class="container">
+
+
+ <div class="row">
+  <div class="col-md-12">
+   <h4><strong>Reasons to Purchase Properties</strong></h4>
+   </div>
+  </div>
+ 
+ <div class="text-center">
+  <div class="row rSignUp">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-ok logo-small"></span>
+      <h4>Power</h4>
+      <p>We build the best experience for our community as a team.</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-heart logo-small"></span>
+      <h4>Learn</h4>
+      <p>We look inside and outside for inspiration and learning.</p>
+      </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-lock logo-small"></span>
+      <h4>Job Done</h4>
+      <p>Life is what happens when you're busy working. We make sure to enjoy it.</p>
+    </div>
+     
+    </div>
+  </div>
+ 
+  
+</div>
+</div>
+</section>
+
+<!-- Knoledge Center Section -->
+<section class="kCenter">
+  
+ <div class = "container">
+  <div class="row">
+    <div class="col-md-12">
+     <h4><strong>Knowledge Center</strong></h4>
+     </div>
+    </div>
+
+  <div class="row">
+    <div class="col-sm-4 firstBox"></div>
+    <div class="col-sm-4 secondBox"></div>
+    <div class="col-sm-4 thirdBox"></div>
+  </div>
+  </div>
+</section>
+
+
+<!-- Our Vision Section -->
+<section class="vision">
+  <div class = "container">
+  <div class="row">
+    <div class="col-md-12">
+     <h4><strong>Our Vision</strong></h4>
+     </div>
+    </div>
+
+  <div class="row">
+    <!-- Our Vision Statement Goes Here -->
+    <div class="col-md-12 visionContainer">
+      
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<!-- Footer Cartoon Section -->
+
+ <section class="cartoon">
+ <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+          <h2><strong>AvetiZ</strong> has partners in <span class="cityIn" id="state"></span> and several cities around the World.</h2>
+      </div>
+    </div>
+  </div>
+  <img src="https://www.blackstone.com/images/default-source/default-album/skyline-sketch-dark.png?sfvrsn=2" >
+ 
+</section>
+
+
+
+
+<!-- Footer Section built by a backender -->
+<div class="divider-5"></div>
+<hr>
+
+<div class="container"> 
+<div class="footer">
+  
+    <div class="row">
+      
+      <div class="col-sm-4 more-space"><!--  1st column begins-->
+      
+        <!--h4 class="column-header text-justify head"> AvetiZ </h2-->
+        
+        
+        <div class="more-space">
+      
+				<div class="col-md-8 mavelous ">
+					
+					
+					<div class="form-group">
+						
+						<div id="google_translate_element"></div><script type="text/javascript">
+								function googleTranslateElementInit() {
+										new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,de,en,fr,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+										}
+									</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+					</div>	
+			
+				</div>
+             
+        <div class="col-sm-8 mavelous currency">
+          
+          <div class="form-group">
+          
+            <select name="currency_code" class="form-control tolu">
+                <option value="NGN">NGN</option>
+                <option value="AUD">USD</option>
+                <option value="BRL">EUR </option>
+                <option value="CAD">CAD</option>
+                <option value="CZK">GBP</option>
+                
+            </select>
+          
+          </div>
+    
+        </div>
+
+        
+        <div class="divider-10"></div>
+        
+        <div class="col-sm-12 ">
+        
+          <ul class="list-group text-justify  borderless list-inline">
+              <li class="list-group-item">Terms</li>
+              <li class="list-group-item">Privacy</li>
+              <li class="list-group-item">Site Map</li>
+              <li class="list-group-item"><span><i class="fa fa-facebook-official fa-1x"></i></span></li>
+              <li class="list-group-item"><i class="fa fa-linkedin fa-1x"></i></li>
+              <li class="list-group-item"><i class="fa fa-instagram fa-1x" aria-hidden="true"></i></li>
+          </ul>
+        
+        </div>
+        
+  
+        
+        
+        
+        </div><!--more space div add margin top -->
+        
+      
+      </div><!-- end of 1st column-->
+      
+      
+      <div class="col-sm-4 more-space"><!--  2nd column begins-->
+      
+         
+          
+          <div class="more-space">
+          
+           <h4 class="column-header text-justify head"> Sign Up </h4>
+          
+          <ul class="list-group text-justify mavelous borderless">
+            <li class="list-group-item">About</li>
+            <li class="list-group-item">Help</li>
+            <li class="list-group-item">Investors</li>
+            <li class="list-group-item">Partners</li>
+            <li class="list-group-item">Cities</li>
+            <li class="list-group-item">Policies</li>
+            <li class="list-group-item">Countries</li>
+            <!--li class="list-group-item">About Us</li-->
+            
+            
+            
+          </ul>
+          
+          </div>
+      
+      
+      </div><!-- end of 2nd column-->
+    
+    
+      
+      <div class="col-sm-3 more-space"><!--  3nd column begins-->
+      
+          
+          
+          
+          
+          <div class="more-space">
+			<h4 class="column-header text-justify head "> Help </h4>
+          <ul class="list-group text-justify mavelous borderless">
+            <li class="list-group-item">Safety</li>
+            <li class="list-group-item">Media</li>
+            <li class="list-group-item"><a href="how-it-works.html" target="_blank">How it Works</a></li>
+            <li class="list-group-item"><a href="intelligent-investing.html" target="_blank">Intelligent Investing</a></li>
+            <li class="list-group-item"><a href="insight.html" target="_blank">Insight</a></li>
+            <!--li class="list-group-item">Local Jobs</li-->
+          </ul>
+          
+          </div>
+      
+    
+      
+      </div><!-- end of 3nd column-->
+      
+      <div class="col-sm-1 ">
+		<!--div class="divider-icon"></div-->
+        <div class="col-sm-push-3" >
+		
+                                 
+        <div id="search" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+    <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Lagos</h4>
+              </div>
+              <div class="modal-body">
+              
+                <p>We Use Location to customize the information you see.</p>
+                
+                <input type="text" id="pac-input" class="form-control" placeholder="Change your location"  />
+                <!--div class="pac-container"></div-->
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+        </div>
+      
+      </div>
+	</div><!--row -->
+	</div> 
+    
+  </div><!--container --> 
+  <hr>
+      
+   <div class="container">
+     <div class="row">
+      <div class="col-sm-6">
+      <span><p class="head">AvetiZ is a service mark of AvetiZ Corp &copy; 2017. All Rights Reserved.</p></span>
+      </div>
+      
+        <div class="col-sm-4 border-header"><!-- android ios download section -->
+           <ul class="list-group text-center borderless list-inline">
+            <li class="list-group-item"><img src="img/google2.png" class="img-responsive "></li>
+            <li class="list-group-item"><img src="img/ios2.png" class="img-responsive "></li> 
+          </ul>  
+       </div>
+       </div>
+     </div>
+
+<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="js/main.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script>	
+				function geoFindMe() {
+				
+					if(navigator.geolocation) {
+						navigator.geolocation.getCurrentPosition(success, error, geoOptions);
+						} else {
+					console.log("Geolocation services are not supported by your web browser.");
+				}
+			}
+
+			function success(position) {
+				var latitude = position.coords.latitude;
+				var longitude = position.coords.longitude;
+				var altitude = position.coords.altitude;
+				var accuracy = position.coords.accuracy;
+				console.log("lat: " + latitude + " long: " + longitude);
+				displayLocation(latitude,longitude);
+				}
+
+			function error(error) {
+				console.log("Unable to retrieve your location due to " + error.code + ": " + error.message);
+			}
+
+			var geoOptions = {
+			enableHighAccuracy: true,
+			maximumAge: 30000,
+			timeout: 27000
+			};
+			
+	google.maps.event.addDomListener(window, 'load', initialize);
+      function initialize() {
+        var options = {
+                types: ['(cities)'],
+                radius: '2000',
+                location:'6.5243793,3.379205700000057',
+                componentRestrictions: {country: "us,ng"}
+                
+                };
+        var input = document.getElementById('id_query',options);
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.addListener('place_changed', function () {
+        var place = autocomplete.getPlace();
+        var info = '';
+        place.address_components.forEach(function (item) {
+        if (item.types.indexOf("administrative_area_level_1") > -1) {
+            info += '<div>State: ' + item.long_name + '</div>';
+            document.getElementById("id_state").value= item.long_name;
+
+        }
+        if (item.types.indexOf("locality") > -1) {
+            info += '<div>City: ' + item.long_name + '</div>';
+            document.getElementById("id_city").value = item.long_name;
+        }
+        if (item.types.indexOf("country")> -1){
+          document.getElementById("id_country").value=item.long_name;
+        }
+        });
+
+        console.log(info)
+
+
+        
+        });
+       
+        }
+    
+
+  
+	
+				
+function displayLocation(latitude,longitude){
+    var geocoder;
+    geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(latitude, longitude);
+
+    geocoder.geocode(
+        {'latLng': latlng}, 
+        function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                if (results[0]) {
+                    var add= results[0].formatted_address ;
+                    var  value=add.split(",");
+
+                    count=value.length;
+                    country=value[count-1];
+                    state=value[count-2];
+                    city=value[count-3];
+					var x=document.getElementById("city");
+					var y=document.getElementById("state");
+					y.innerHTML = city;
+					x.innerHTML = city;
+           $.get('request/?location='+state,function(data,status){
+              //alert('failure'+data.featurelatest);
+              $('div.js-feature').html(data.featurelatest)
+              $('.temphide').show()
+          })
+                    console.log ("city name is: " + city);
+                }
+                else  {
+                    console.log ("address not found");
+                }
+            }
+            else {
+                console.log( "Geocoder failed due to: " + status);
+            }
+        }
+    );
+}	
+		 
+</script>
+
+</body>
+</html>

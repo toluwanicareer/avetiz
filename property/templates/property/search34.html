@@ -1,0 +1,747 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search | AvetiZ</title>
+	<meta charset = "utf-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content = "width = device width, initial-scale = 1">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'property/css/property.css' %} ">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'property/css/bootstrap-xlgrid.min.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'property/css/footer.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="shortcut icon" sizes="76x76" type="image/x-icon" href="img/avetiz4.png" />
+     <script src="http://maps.google.com/maps/api/js?sensor=false"
+              type="text/javascript"></script>
+</head>
+<body>
+	<nav class="first-search-nav navbar navbar-default navbar-fixed-top" style="background-color: #fff">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#"><strong>AvetiZ</strong></a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+                      <li><a href="#">Buy</a></li>
+                      <li><a href="#about">Sell</a></li>
+                      <li><a href="how-it-works.html">How It Works</a></li>
+                      <li><a href="intelligent-investing.html">Intelligent Investing</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="#">Sign Up</a></li>
+                      <li><a href="#">Help</a></li>
+                      
+                    </ul>	    
+                    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+	<!-- Second Navigation Bar -->
+
+	<div class="navbar navbar-default topnav searchtopnav navbar-static-top">
+	  <div class="container-fluid">
+	  	<div class="row">
+	  	<div class="col-md-12">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	       </button>
+		
+		</div>
+	     
+	    <div class="navbar-collapse collapse">
+	     
+	      {% include 'property/includes/top-search.html' %}
+
+	    </div><!--/.nav-collapse -->
+	    </div>
+	    </div>
+	  </div>
+	</div> <!--end of Second Navigation Bar -->
+
+	<section class="mapSection">
+	 <div class="container-fluid" style="margin-left:0;padding-left: 0">
+	<div class="row">
+	<div class="col xxl-7 col-xxl-7 col-xl-7 col-md-6 col-sm-6 col-xs-12 mapColumn hidden-xs">
+		<div id="map" style="width: 100%; min-height: 1885px; position: absolute; z-index: 0;"></div>
+	</div>
+
+	<div class="col xxl-5 col-xxl-5 col-xl-5 col-md-6 col-sm-6 col-xs-12 listings ">
+
+  <div class="fixedBar">
+    <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-8 col-xs-8"><h2 class="areaName"><!--Name of Area -->Central Business District </h2></div>
+      <div class="col-md-4 col-xs-4"><p class="propsFound"><!--Number of Properties found in place searched -->14 Homes For Sale.</p></div>
+    </div>
+    <div class="row fixedBarFormRow">
+      <div class="col-lg-12 col-md-12">
+        <form class="form-inline">
+        <label for="price">Price</label>
+        <select class="form-control">
+          <option selected="selected">No Min</option>
+          <option value="">₦100K</option>
+          <option>₦200K</option>
+          <option>₦300K</option>
+          <option>₦400K</option>
+          <option>₦500K</option>
+        </select>
+        <span class="hidden-xs">to</span>
+
+        <select class="form-control">
+          <option selected="selected">No Max</option>
+          <option value="">₦100K</option>
+          <option>₦500K</option>
+          <option>₦600K</option>
+          <option>₦700K</option>
+          <option>₦800K+</option>
+        </select>
+
+      </form>
+      </div> 
+
+    </div>
+    <div class="container-fluid">
+      <div class="row tabRow text-justify">
+      <div class="col-md-8">
+        <div class="row">
+          <span class="span-active"><a href="#">Homes for you</a></span> <span><a href="#">Newest</a></span><span><a href="#">Cheapest</a></span><span><a href="#">More</a></span>
+        </div>
+      </div>
+      <div class="col-md-3">
+      </div>
+          </div>
+        </div>
+
+   <div class="row">
+      <div class="col-md-6 dontwantpadding">
+        <div class="property">
+        
+        <i class="fa fa-heart-o fa-3x" aria-hidden="true"></i>
+        <h3 class="propertyDet"><span class="price">₦11,000,000</span> + <span class="beds">2 bds</span>. <span class="baths">2 ba.</span> 644+sqft</h3>
+        <p class="propertyAddr"><!--address here-->House A11, Central Area, Abuja</p>
+        <p class="developerName">Developer: <strong><em>Barnes & Nobles</em></strong></p>
+        <span class="listed">Listed By AvetiZ</span>
+        </div>
+        </div>
+
+        <div class="col-md-6 agentCol hidden-sm hidden-xs">
+         <div class="row">
+          <div class="col-sm-3">
+            <img src="https://pbs.twimg.com/profile_images/2020318404/image_400x400.jpg" class="img img-responsive img-circle" width="100">
+          </div>
+          <div class="col-sm-9">
+            Listed by <a href="">AvetiZ Agent</a> 
+            <br> <strong>Abdul Madaki</strong>
+          </div>
+        </div>
+
+         <div class="row tablerow">
+               <div class="col-sm-6 dontwantpadding">
+                 <table class="table text-justify dontwantpadding">
+                  <tbody>
+                    <tr>
+                      <td class="noborderTop">₦/Sq. Ft.</td>
+                      <td class="text-right noborderTop"><strong>-</strong></td>
+                    </tr>
+                    <tr>
+                      <td>On AvetiZ</td>
+                      <td class="text-right"><strong>3 days</strong></td>
+                    </tr>
+                    <tr>
+                      <td>HOA</td>
+                      <td class="text-right"><strong>None</strong></td>
+                    </tr>
+
+                  </tbody>
+                </table>
+             </div>
+
+               <div class="col-sm-6 dontwantpadding">
+                 <table class="table text-justify dontwantpadding">
+                  <tbody>
+                    <tr>
+                      <td class="noborderTop">Year Built</td>
+                      <td class="text-right noborderTop"><strong>1960</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Lot Size</td>
+                      <td class="text-right"><strong>1.72 Acres</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Status</td>
+                      <td class="text-right"><strong>New</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+             </div>
+            </div>
+            <hr>
+            <div class="row vtbtnRow">
+              <div class="col-sm-2"><a href=""><i class="fa fa-heart-o fa-2x" aria-hidden="true"></i></a></div>
+              <div class="col-sm-2"><a href=""><i class="fa fa-times fa-2x" aria-hidden="true"></i></a></div>
+              <div class="col-sm-4"><button class="btn btn-default">View Details</button></div>
+              <div class="col-sm-4"><button class="btn btn-default">Go Tour</button></div>
+
+            </div>
+
+        </div>
+
+
+      </div>
+
+      </div>
+      <!--End of Properties -->
+
+
+      <!-- Hottest Selling Open Houses Least Expensive -->
+      <section class="featuredProps container-fluid">
+      <div class="row">
+      <div class="col-md-4">
+        <div class="col-md-12 fp fp1">
+        <p>Hottest Selling</p></div>
+      </div>
+      <div class="col-md-4"><div class="col-md-12 fp fp2"><p>Open Houses</p></div></div>
+      <div class="col-md-4"><div class="col-md-12 fp fp3"><p>Least Expensive</p></div></div>
+      </div>
+      </section>
+
+      <!-- Pagination  -->
+      <nav aria-label="Page navigation" class="container-fluid">
+      <ul class="pagination">
+        <li>
+          <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li class="hidden-xs"><a href="#">1</a></li>
+        <li class="hidden-xs"><a href="#">2</a></li>
+        <li class="hidden-xs"><a href="#">3</a></li>
+        <li class="hidden-xs"><a href="#">4</a></li>
+        <li class="hidden-xs"><a href="#">5</a></li>
+        <li class="hidden-xs"><a href="#">6</a></li>
+        <li class="hidden-xs"><a href="#">20</a></li>
+        <li class="hidden-xs"><a href="#">NEXT</a></li>
+        <li>
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="whyavetiz container-fluid">
+      <hr>
+
+      <h4>Central Area Real Estate Facts</h4>
+      <div class="row">
+        <div class="col-md-6"><p>Total Properties for Sale: </p></div> <div class="col-md-6"><strong>30</strong></div>
+      </div>
+      <div class="row">
+        <div class="col-md-6"><p>Median Property Value Estimate: </p></div> <div class="col-md-6"><strong>₦3,000,000</strong></div>
+      </div>
+      <div class="row">
+        <div class="col-md-6"><p>Property Value Forecast: </p></div> <div class="col-md-6"><strong>0.1%</strong></div>
+      </div>
+
+      <hr>
+      <h4>Average Home Value By City</h4>
+      <div class="row">
+        <div class="col-md-6"><p>Central Business District </p></div> <div class="col-md-6"><strong>₦3,000,000</strong></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6"><p>Asokoro </p></div> <div class="col-md-6"><strong>₦13,000,000</strong></div>
+        </div>
+
+      <hr>
+
+      <h4>Central Business District Neigbhorhoods</h4>
+      <div class="row">
+        <div class="col-md-6"><p>Lugbe </p></div> <div class="col-md-6"><strong>₦7,000,000</strong></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6"><p>Maitama </p></div> <div class="col-md-6"><strong>₦15,000,000</strong></div>
+        </div>
+
+      <div class="row">
+        <div class="col-md-6"><p>Gwarinpa</p></div> <div class="col-md-6"><strong>₦23,000,000</strong></div>
+        </div>
+
+    </section>
+
+
+     
+  </div>
+  </div>
+
+	</div>
+	</div>
+	</section>
+
+  <section class="homePrices text-center">
+    <div class="container">
+    <div class="row">
+     <div class="col-md-10 col-md-offset-1">
+      <h2>Home Prices in Central Area, Abuja</h2>
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <div class="cardBox">
+           <div class="col-xs-10 text-left">
+            <span class="cpropertyType">1 Bedroom Homes</span>
+           </div>
+            <div class="col-xs-2 text-right"><i class="fa fa-info-circle fa-2x" aria-hidden="true"></i></div>
+            <div class="col-xs-12 text-left">
+             <span class="cListed">Listed Around:</span>
+            </div>
+            <div class="col-xs-12 priceBlock">
+            <span class="cpropertyPrice">₦1.5M</span>
+            <button class="btn btn-default btn-block">See 80 Homes</button>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="cardBox">
+            <div class="col-xs-10 text-left">
+            <span class="cpropertyType">1 Bedroom Homes</span>
+           </div>
+            <div class="col-xs-2 text-right"><i class="fa fa-info-circle fa-2x" aria-hidden="true"></i></div>
+            <div class="col-xs-12 text-left">
+             <span class="cListed">Listed Around:</span>
+            </div>
+            <div class="col-xs-12 priceBlock">
+            <span class="cpropertyPrice">₦2.5M</span>
+            <button class="btn btn-default btn-block">See 50 Homes</button>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-md-4 hidden-sm">
+          <div class="cardBox">
+            <div class="col-xs-10 text-left">
+            <span class="cpropertyType">3+ Bedroom Homes</span>
+           </div>
+            <div class="col-xs-2 text-right"><i class="fa fa-info-circle fa-2x" aria-hidden="true"></i></div>
+            <div class="col-xs-12 text-left">
+             <span class="cListed">Listed Around:</span>
+            </div>
+            <div class="col-xs-12 priceBlock">
+            <span class="cpropertyPrice">₦4.5M</span>
+            <button class="btn btn-default btn-block">See 30 Homes</button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="col-sm-10 col-sm-push-1">
+        <p class="cmoreInfo">The asking price of homes for sale in Central Area has increased 9.5% since June last year, while the number of homes for sale has increased 36.4%. <a href="">See more.</a></p>
+      </div>
+
+
+      </div>
+      </div>
+    </div>  
+  </section>
+
+  <section class="estateTrends text-center">
+    <div class="container">
+    <div class="row">
+     <div class="col-md-10 col-md-offset-1">
+     <div class="col-xs-12">
+      <h2>Overview of Central Area Real Estate Trends</h2>
+      <small>Calculated using the past 30 days</small>
+      
+      </div>
+        <div class="divider">
+        </div>
+            <div class="row">
+               <div class="col-sm-6">
+                 <table class="table text-justify">
+                  <tbody>
+                    <tr>
+                      <td class="noborderTop">Median List Price</td>
+                      <td class="text-right noborderTop"><strong>₦920K</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Median List ₦/Sq Ft</td>
+                      <td class="text-right"><strong>₦18K</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Median Sale Price</td>
+                      <td class="text-right"><strong>₦561K</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Median Sale Price ₦/Sq Ft</td>
+                      <td class="text-right"><strong>₦10K</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+             </div>
+
+               <div class="col-sm-6">
+                         <table class="table text-justify">
+                  <tbody>
+                    <tr>
+                      <td class="noborderTop">Median Sale/List</td>
+                      <td class="text-right noborderTop"><strong>95.5%</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Avg. Number of Offers</td>
+                      <td class="text-right"><strong>8</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Avg. Down Payment</td>
+                      <td class="text-right"><strong>49.5%</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Number of Homes Sold</td>
+                      <td class="text-right"><strong>300</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+             </div>
+      </div>
+      </div>
+      </div>
+      </div> 
+  </section>
+
+<section class="jumbotron realEAgentsJumbo">
+  <div class="container-fluid">
+    <div class="row">
+     <div class="col-sm-5 col-sm-offset-2 eAgentsOverlay">
+      <div class="">
+      <div class="col-sm-12">
+        <h2>AvetiZ Real Estate Agents in Abuja</h2>
+        </div>
+        <div class="col-sm-11 col-sm-offset-1">
+         <div class="col-sm-4 colF">
+            <span class="boldNum">100</span><br><span class="recentD">Recent Deals in the Last Year</span>
+         </div>
+         <div class="col-sm-4 colF">
+           <span class="boldNum">4.9</span><br><span class="recentD">Avg. Customer Satisfaction</span>
+         </div>
+         <div class="col-sm-4">
+           <span class="boldNum">230</span><br><span class="recentD">Total Homes Closed</span>
+         </div>
+ 
+        </div>
+
+        <div class="col-sm-10 col-sm-offset-2">
+          <button class="btn btn-default btn-lg">Find an AvetiZ Real Estate Agent</button>
+        </div>
+        <div class="col-sm-12">
+          <p class="agentsnum">5 active AvetiZ agents in Abuja.</p>
+        </div>
+      </div>
+      </div>
+    </div>
+      </div>
+    </section>
+
+    <section class="container-fluid text-center transSection">
+      <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h2>Transportation in Central Business District</h2>
+
+           <div class="row">
+           <div class="col-sm-offset-1 col-sm-11">
+           
+             <div class="row">
+              <div class="col-xs-4">
+              <i class="fa fa-road fa-3x" aria-hidden="true"></i>
+              
+              </div>
+              <div class="col-xs-4">
+              <i class="fa fa-car fa-3x" aria-hidden="true" ></i>
+              
+              </div>
+              <div class="col-xs-4">
+              <i class="fa fa-train fa-3x" aria-hidden="true" ></i>
+              
+              </div>
+
+             </div>
+
+             <p class="nhmore">This area is very walkable — most errands can be accomplished on foot. It's a rider's paradise, with world-class public transportation. There is a minimal amount of infrastructure for biking.</p>
+           </div>
+           </div>
+           </div>
+          </div>
+    </section>
+
+    <section class="placePhotos text-center">
+      <div class="container">
+        <h2>Photos of Central Business District</h2>
+
+        <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <div class="col-sm-4">
+            <img class="img-responsive" src="https://pp3.walk.sc/w640h460/production/103105_robert_f_wagner_junior_park_new_york.jpg">
+          </div>
+          <div class="col-sm-4">
+            <img class="img-responsive" src="https://pp3.walk.sc/w640h460/production/88505_brass_monkey_new_york.jpg">
+          </div>
+          <div class="col-sm-4">
+            <img class="img-responsive" src="https://pp.walk.sc/w640h460/production/89481_the_high_line_new_york_.jpg">
+          </div>
+          <div class="col-sm-4">
+            <img class="img-responsive" src="https://pp2.walk.sc/w640h460/production/88520_federal_reserve_bank_of_new_york_new_york.jpg">
+          </div>
+          <div class="col-sm-4">
+            <img class="img-responsive" src="https://pp2.walk.sc/w640h460/production/88488_barclays_towers_new_york.jpg">
+          </div>
+          <div class="col-sm-4">
+            <img class="img-responsive" src="https://pp3.walk.sc/w640h460/production/103105_robert_f_wagner_junior_park_new_york.jpg">
+          </div>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+
+    <!-- Footer Section built by a backender -->
+<div class="divider-5"></div>
+<hr>
+
+<div class="container"> 
+<div class="footer">
+  
+    <div class="row">
+      
+      <div class="col-sm-4 more-space"><!--  1st column begins-->
+      
+        <!--h4 class="column-header text-justify head"> AvetiZ </h2-->
+        
+        
+        <div class="more-space">
+      
+        <div class="col-md-8 mavelous ">
+          
+          
+          <div class="form-group">
+            
+            <div id="google_translate_element"></div><script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,de,en,fr,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                    }
+                  </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+          </div>  
+      
+        </div>
+             
+        <div class="col-sm-8 mavelous currency">
+          
+          <div class="form-group">
+          
+            <select name="currency_code" class="form-control tolu">
+                <option value="NGN">NGN</option>
+                <option value="AUD">USD</option>
+                <option value="BRL">EUR </option>
+                <option value="CAD">CAD</option>
+                <option value="CZK">GBP</option>
+                
+            </select>
+          
+          </div>
+    
+        </div>
+
+        
+        <div class="divider-10"></div>
+        
+        <div class="col-sm-12 ">
+        
+          <ul class="list-group text-justify  borderless list-inline">
+              <li class="list-group-item">Terms</li>
+              <li class="list-group-item">Privacy</li>
+              <li class="list-group-item">Site Map</li>
+              <li class="list-group-item"><span><i class="fa fa-facebook-official fa-1x"></i></span></li>
+              <li class="list-group-item"><i class="fa fa-linkedin fa-1x"></i></li>
+              <li class="list-group-item"><i class="fa fa-instagram fa-1x" aria-hidden="true"></i></li>
+          </ul>
+        
+        </div>
+        
+  
+        
+        
+        
+        </div><!--more space div add margin top -->
+        
+      
+      </div><!-- end of 1st column-->
+      
+      
+      <div class="col-sm-4 more-space"><!--  2nd column begins-->
+      
+         
+          
+          <div class="more-space">
+          
+           <h4 class="column-header text-justify head"> Sign Up </h4>
+          
+          <ul class="list-group text-justify mavelous borderless">
+            <li class="list-group-item">About</li>
+            <li class="list-group-item">Help</li>
+            <li class="list-group-item">Investors</li>
+            <li class="list-group-item">Partners</li>
+            <li class="list-group-item">Cities</li>
+            <li class="list-group-item">Policies</li>
+            <li class="list-group-item">Countries</li>
+            <!--li class="list-group-item">About Us</li-->
+            
+            
+            
+          </ul>
+          
+          </div>
+      
+      
+      </div><!-- end of 2nd column-->
+    
+    
+      
+      <div class="col-sm-3 more-space"><!--  3nd column begins-->
+      
+          
+          
+          
+          
+          <div class="more-space">
+      <h4 class="column-header text-justify head "> Help </h4>
+          <ul class="list-group text-justify mavelous borderless">
+            <li class="list-group-item">Safety</li>
+            <li class="list-group-item">Media</li>
+            <li class="list-group-item"><a href="how-it-works.html">How it Works</a></li>
+            <li class="list-group-item"><a href="intelligent-investing.html">Intelligent Investing</a></li>
+            <li class="list-group-item"><a href="insight.html">Insight</a></li>
+            <!--li class="list-group-item">Local Jobs</li-->
+          </ul>
+          
+          </div>
+      
+    
+      
+      </div><!-- end of 3nd column-->
+      
+      <div class="col-sm-1 ">
+    <!--div class="divider-icon"></div-->
+        <div class="col-sm-push-3" >
+    
+                                 
+        <div id="search" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+    <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Lagos</h4>
+              </div>
+              <div class="modal-body">
+              
+                <p>We Use Location to customize the information you see.</p>
+                
+                <input type="text" id="pac-input" class="form-control" placeholder="Change your location"  />
+                <!--div class="pac-container"></div-->
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+        </div>
+      
+      </div>
+  </div><!--row -->
+  </div> 
+    
+  </div><!--container --> 
+  <hr>
+      
+   <div class="container">
+     <div class="row">
+      <div class="col-sm-6">
+      <span><p class="head">AvetiZ is a service mark of AvetiZ Corp &copy; 2017. All Rights Reserved.</p></span>
+      </div>
+      
+        <div class="col-sm-4 border-header"><!-- android ios download section -->
+           <ul class="list-group text-center borderless list-inline">
+            <li class="list-group-item"><img src="img/google2.png" class="img-responsive "></li>
+            <li class="list-group-item"><img src="img/ios2.png" class="img-responsive "></li> 
+          </ul>  
+       </div>
+       </div>
+     </div>
+
+
+<script type="text/javascript">
+        var locations = [
+          ['Stadtbibliothek Zanklhof', 47.06976, 15.43154, 1],
+          ['Stadtbibliothek dieMediathek', 47.06975, 15.43116, 2],
+          ['Stadtbibliothek Gösting', 47.09399, 15.40548, 3],
+          ['Stadtbibliothek Graz West', 47.06993, 15.40727, 4],
+          ['Stadtbibliothek Graz Ost', 47.06934, 15.45888, 5],
+          ['Stadtbibliothek Graz Süd', 47.04572, 15.43234, 6],
+          ['Stadtbibliothek Graz Nord', 47.08350, 15.43212, 7],
+          ['Stadtbibliothek Andritz', 47.10280, 15.42137, 8]
+        ];
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: new google.maps.LatLng(47.071876, 15.441456),
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+
+        var marker, i;
+
+        for (i = 0; i < locations.length; i++) {
+          marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map
+          });
+
+          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+              infowindow.setContent(locations[i][0]);
+              infowindow.open(map, marker);
+            }
+          })(marker, i));
+        }
+      </script>
+
+<!-- Include the Google Maps API library - required for embedding maps -->
+
+<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="js/main.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+{% extends 'help/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container ">
+		<div class="row">
+			<form method="post">
+				{% csrf_token %}
+			<div class="col-md-12 topsearch ">
+				<div class="col-md-6 ">
+					{% if error %}
+							<p><font color="#ff0000">{{error}}</font></p>
+							{% endif %}
+					<div class="custom-search-input help-search">
+						<div class="input-group col-md-12">
+							{{ form.help }}
+							<span class="input-group-btn help-search">
+								<button class="btn btn-info btn-lg" type="submit">
+									<i class="fa fa-search"></i>
+								</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			</form>
+			
+		</div>
+	</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4">
+			<ul class="list-group borderless padder">
+				<li class="list-group-item"><a id="buyer" href="#">Buyers</a></li>
+				<li class="list-group-item"><a id="dev" href="#">Developers</a></li>
+				<li class="list-group-item"><a id="prof" href="#">Professionals</a></li>
+				<li class="list-group-item"><a id="start" href="#">Getting Started</a></li>
+			</ul>
+		</div>
+		<div class="col-md-8">
+			<h3 style="text-transform:capitalize" class="text-center">{{ help.title }}</h3>
+			<div class="answer">
+			  {{help.answer}}
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4 col-md-push-8">
+			<p>Cant find what you are looking for <a href="/help/request/">Contact Us</a></p>
+		</div>	
+	</div>
+</div>
+{% endblock %}

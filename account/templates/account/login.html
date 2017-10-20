@@ -1,0 +1,59 @@
+{% extends "help/base.html" %}
+{% load static %}
+{% block content %}
+
+<div class = "jumbotron loginJumbo">
+<div class="container">
+	
+	<div class="border">
+	<div class="row">
+	
+	<div class="col-md-12">
+		<form class="form-horizontal" method="post">
+		{% csrf_token %}
+		<div class="wrapper col-md-push-2"> 
+		<div class="col-sm-5 transparent">
+		    
+			
+		    
+			
+			<div class="form-group">
+			<h4 style="text-align:justify;font-weight:700;">Log In</h4>
+			</div>
+			{% for field in form %}
+			<div class="form-group">
+			
+			<p><font color="red">{{ field.errors }}</font></p>
+			<label class="control-label col-sm-4 col-md-push-1"style="text-align:justify;font-weight: 100;">{{ field.label }}</label> 
+			<div class="col-sm-8 login" >
+			<div >{{ field }}</div>
+			</div>
+			</div>
+			{% endfor %}
+			
+			<button class="btn btn-primary btn-sm form-control"style="width:70px;margin-left:85%; height:30px">Log In</button>
+		</div>
+		<div class="col-md-3 forminfo">
+			<div class="info-text1">
+				If you are having trouble logging in, please try to reset your password. If you are still unable to login, contact:</div>
+				
+				<div class="info-text2"><span class="infospan">IT Service Desk</span>
+				<br>
+				Email: help@avetiz.com Please include in your e-mail subject line:AvetiZ Login Issue 
+				<br>
+				Phone: 09 2912518
+				</div>
+				
+				
+			</div>
+			</form>
+			</div>
+	</div>
+		</div>
+		</div>
+	</div>
+	
+		
+	</div>
+
+{% endblock %}

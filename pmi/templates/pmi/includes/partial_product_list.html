@@ -1,0 +1,33 @@
+  {% for product in product_list %}
+             <div class="card">
+              <div class="row">
+                <div class="col-sm-6 firstCardCol">
+                  <div class="row">
+                    <div class="col-sm-6 js-sibling">
+                      <span class="fixedYr js-tenure" style="display:inline" >{{product.tenure}}</span><span class="fixedYr" style="display:inline" > Yr Fixed</span><br>
+                      <span class="apr js-rate"  style="display:inline" >{{product.rate}}</span><span  style="display:inline" class="apr" >% APR</span>
+                      <span><small>{{now|date}}</small></span>
+                    </div>
+                    <div class="col-sm-6 js-parent">
+                      <span style="display:inline" class="fixedAmt js-emi">₦20,551</span><span style="display:inline">/yr</span>
+                      <span class="">₦{{product.processing_fee}} APR fee</span>
+                      <span class=""><a href="{{product.company.website}}" > More Details </a></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 secondCardCol">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <img src="{{product.company.logo.url}}" class="img-responsive" style="max-height:50px;" width="100" height="20px">
+                      <p><small>NMLS # {{product.company.license_no}}</small></p>
+                    </div>
+                    <div class="col-sm-6">
+                      <span>Call toll free:</span>
+                      <span class="fixPhn">{{product.company.phone}}</span>
+                      <a class="btn btn-default btn-block cardBtn" href="{{product.company.website}}">Next</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+             </div>
+             {%endfor%}

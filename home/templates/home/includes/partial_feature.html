@@ -1,0 +1,204 @@
+<section class="featuredImages">
+
+
+ <div class="row">
+ <div class="container">
+ <div class="row">
+  <div class="col-md-12">
+   <div class="temphide"><h4><strong>Featured Properties</strong></h4></div>
+   </div>
+  </div>
+
+  <div class='row'>
+    <div class='col-md-12'>
+      <div class="carousel slide media-carousel" id="media">
+        <div class="carousel-inner">
+         {% for property in properties %}
+         {%if forloop.first %}
+          <div class="item active">
+            <div class="row">
+          {% endif %}
+              <div class="col-md-4 col-sm-6 col-xs-12 pic nopadding">
+                <a href="{% url 'property:detail' property.id %}"><img style="display: block" alt="" src="{{property.thumbnail}}"></a>
+                 <div class="show">
+                  <div class="text">
+                   <div class="row text-center">
+                    <div class="col-xs-6 bold">
+                      <span class="fPrice"><i class="fa fa-building gold" aria-hidden="true"></i><span class="js-price"> ₦{{property.value}}</span></span>
+                      <span class="fAddress">{{property.title}}</span>
+                      
+                    </div>
+                    <div class="col-xs-6 bold">
+                    <div class="row">
+                      <div class="col-xs-4 num-right"><span class="num">{{property.bedroom}}</span> Beds</div>
+                      <div class="col-xs-4 num-right"><span class="num">{{property.bathroom}}</span> Baths</div>
+                      <div class="col-xs-4"><span class="num">{{property.area}}</span> Sq.Ft</div>
+                    </div>
+                    </div>
+                  </div>
+
+                  <div class="row text-center">
+                    <div class="col-xs-6">
+                      <span class="fCity"><small>{{property.city}}, {{property.state}}</small></span>
+                    </div>
+
+                    <div class="col-xs-6">
+                      <span class="fListed"><small>Listed By {{property.developer.name}}</small></span>
+                    </div>
+                  </div>
+
+                   </div>
+                </div>
+
+                <div class="alisted">Listed By {{property.developer.name}}</div>
+              </div>     
+            {% if forloop.counter|divisibleby:'3' and not forloop.last %}
+            </div>
+          </div>
+          <div class="item">
+            <div class="row">
+          {% endif %}
+
+          {% if forloop.last %}
+          </div>
+          </div>
+          {%endif%}
+          {% endfor %}
+        </div>
+        <a data-slide="prev" href="#media" class="left carousel-control">‹</a>
+        <a data-slide="next" href="#media" class="right carousel-control">›</a>
+      </div>                          
+    </div>
+  </div>
+  </div>
+</div>
+
+
+</section>
+
+<!-- Featured Images Section -->
+
+<section class="featuredImages">
+
+
+ <div class="row">
+ <div class="container animatefeature">
+ <div class="row">
+  <div class="col-md-12">
+  <div class="temphide"><h4><strong>Recently Listed Properties</strong></h4></div>
+   </div>
+  </div>
+
+  <div class='row'>
+    <div class='col-md-12'>
+      <div class="carousel slide media-carousel" id="media2">
+        <div class="carousel-inner">
+         {% for property in latest %}
+         {%if forloop.first %}
+            <div class="item active">
+            <div class="row">
+          {% endif %}
+              <div class="col-md-3 col-sm-6 nopadding ">
+                <a class ="" href="#"><img style="display: block;" alt="" src="{{property.thumbnail}}" class="img-responsive"></a>
+                
+                 <div class="show">
+                  <div class="text">
+                   <div class="row text-center">
+                    <div class="col-xs-6 bold">
+                      <span><i class="fa fa-building gold  aria-hidden="true"></i><span class="js-price"> ₦{{property.value}}</span></span>
+                      <span>{{property.title}}</span>
+                      
+                    </div>
+                    <div class="col-xs-6 bold">
+                    <div class="row">
+                      <div class="col-xs-4"><span>{{property.bedroom}}</span> Beds</div>
+                      <div class="col-xs-4"><span>{{property.bathroom}}</span> Baths</div>
+                    </div>
+                    </div>
+                  </div>
+
+                  <div class="row text-center">
+                    <div class="col-xs-6">
+                      <span><small>{{property.city}}, {{property.state}}</small></span>
+                    </div>
+
+                    <div class="col-xs-6">
+                      <span><small>Listed By AvetiZ</small></span>
+                    </div>
+                  </div>
+
+                   </div>
+                </div>
+   
+               <div class="property-price">
+                  <span>₦{{property.value}}</span>
+                </div>
+              </div>     
+
+              
+           {% if forloop.counter|divisibleby:'4' and not forloop.last %}
+            </div>
+          </div>
+          <div class="item">
+            <div class="row">
+          {% endif %}
+           {% if forloop.last %}
+          </div>
+          </div>
+          {%endif%}
+          {% endfor %}
+          
+        <a data-slide="prev" href="#media2" class="left carousel-control">‹</a>
+        <a data-slide="next" href="#media2" class="right carousel-control">›</a>
+      </div>                          
+    </div>
+  </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-12 text-center">
+  <a href="/recent_listing/?location={{state}}" class="btn btn-lg btn-default listingBtn">Find More Listings</a>
+  </div>
+</div>
+
+
+</section>
+
+<!-- Container (Services Section) -->
+
+<section class="signUp">
+<div class="container">
+
+
+ <div class="row">
+  <div class="col-md-12">
+   <h4><strong>Reasons to Purchase Properties</strong></h4>
+   </div>
+  </div>
+ 
+ <div class="text-center">
+  <div class="row rSignUp">
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-ok logo-small"></span>
+      <h4>Power</h4>
+      <p>We build the best experience for our community as a team.</p>
+    </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-heart logo-small"></span>
+      <h4>Learn</h4>
+      <p>We look inside and outside for inspiration and learning.</p>
+      </div>
+    <div class="col-sm-4">
+      <span class="glyphicon glyphicon-lock logo-small"></span>
+      <h4>Job Done</h4>
+      <p>Life is what happens when you're busy working. We make sure to enjoy it.</p>
+    </div>
+     
+    </div>
+  </div>
+ 
+  
+</div>
+</div>
+</section>

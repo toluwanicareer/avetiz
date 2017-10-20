@@ -1,0 +1,932 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search | AvetiZ</title>
+	<meta charset = "utf-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content = "width = device width, initial-scale = 1">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'property/css/property.css' %} ">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'property/css/bootstrap-xlgrid.min.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'property/css/footer.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="shortcut icon" sizes="76x76" type="image/x-icon" href="img/avetiz4.png" />
+    <!--script src="http://maps.google.com/maps/api/js?sensor=false&key=AIzaSyC8TvKHQ-rUklU5OsD6Oq73pMG1fJO9iR8"
+              type="text/javascript"></script-->
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC8TvKHQ-rUklU5OsD6Oq73pMG1fJO9iR8"></script>
+</head>
+<body onload="geoFindMe()">
+	<nav class="first-search-nav navbar navbar-default navbar-fixed-top" style="background-color: #fff">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#"><strong>AvetiZ</strong></a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+                      <li><a href="#">Buy</a></li>
+                      <li><a href="#about">Sell</a></li>
+                      <li><a href="how-it-works.html">How It Works</a></li>
+                      <li><a href="intelligent-investing.html">Intelligent Investing</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="#">Sign Up</a></li>
+                      <li><a href="#">Help</a></li>
+                      
+                    </ul>	    
+                    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+	<!-- Second Navigation Bar -->
+
+	<div class="navbar navbar-default topnav searchtopnav navbar-static-top">
+	  <div class="container-fluid">
+	  	<div class="row">
+	  	<div class="col-md-12">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	       </button>
+		
+		</div>
+	     
+	    <div class="navbar-collapse collapse">
+	     
+	   {% include 'property/includes/top-search.html' %}
+	    </div><!--/.nav-collapse -->
+	    </div>
+	    </div>
+	  </div>
+	</div> <!--end of Second Navigation Bar -->
+
+	<section class="mapSection">
+	 <div class="container-fluid ">
+	<div class="row">
+	<div class="col xxl-7 col-xxl-7 col-xl-7 col-md-6 col-sm-6 col-xs-12 mapColumn hidden-xs">
+		<div id="map" style="width: 100%; height: 800px; position: absolute; z-index: 0;">
+			
+		</div>
+	</div>
+
+	<div class="col xxl-5 col-xxl-5 col-xl-5 col-md-6 col-sm-6 col-xs-12 listings ">
+
+  <div class="fixedBar">
+    <div class="container-fluid">
+    <div class="row">
+     {%if state %}
+      <div class="col-md-8 col-xs-8"><h2 class="areaName"><!--Name of Area -->{{state}} </h2></div>
+      <div class="col-md-4 col-xs-4"><p class="propsFound"><!--Number of Properties found in place searched -->{{count}} Homes For Sale.</p></div>
+      {%else%}
+      <div class="col-md-8 col-xs-8"><h2 class="areaName"><!--Name of Area -->No result found </h2></div>
+      <div class="col-md-4 col-xs-4"><p class="propsFound"><!--Number of Properties found in place searched -->Feature property</p></div>
+      {% endif %}
+    </div>
+    <div class="row fixedBarFormRow">
+      <div class="col-lg-12 col-md-12">
+        <!--form class="form-inline" id="filter" method="post" >
+        {% csrf_token %}
+        <label >Price</label>
+        {{filterform.minprice}}
+        <span class="hidden-xs">to</span>
+
+        {{filterform.maxprice}}
+        {{filterform.filtercity}}
+        {{filterform.filterstate}}
+      	{{filterform.filtercountry}}
+
+      </form-->
+      </div> 
+
+    </div>
+    <div class="container-fluid">
+      <div class="row tabRow text-justify">
+      <div class="col-md-8">
+        <div class="row">
+          <span {% if highlight in 'home' %} class="span-active" {% else %} {% endif %} id='homes'><a href="#">Homes for you</a></span> <span {% if highlight in 'newest' %} class="span-active" {%else%} {% endif %}><a id="newest"  href="#">Newest</a></span><span{% if highlight in 'cheap' %} class="span-active" {% else %} {% endif %}><a href="#" id='cheapest'>Cheapest</a>
+        </div>
+      </div>
+      <div class="col-md-3">
+      </div>
+          </div>
+        </div>
+        <div class="wrapper" id="tolubadass"><!--begining of property -->
+         {%for property in result %} 
+   <div class="row">
+      <div class="col-md-6 dontwantpadding">
+        <div class="property">
+        <input type="hidden" name="pk" value="pk" value="{{property.pk}}"/>
+        
+        <i class="fa fa-heart-o fa-3x" aria-hidden="true"></i>
+        <h3 class="propertyDet"><span class="price js-price">₦{{property.value}}</span> + <span class="beds">{{property.bedroom}} bds</span>. <span class="baths">{{property.bathroom}} ba.</span> {{property.area}}+sqft</h3>
+        <p class="propertyAddr"><!--address here-->{{property.street}}</p>
+        <p class="developerName">Developer: <strong><em>{{property.title}}</em></strong></p>
+        <span class="listed">Listed By {{property.developer.name}}</span>
+        </div>
+        </div>
+
+        <div class="col-md-6 {% cycle 'agentCol' ' ' %} hidden-sm hidden-xs">
+         <div class="row">
+          <div class="col-sm-3">
+            <img src="https://pbs.twimg.com/profile_images/2020318404/image_400x400.jpg" class="img img-responsive img-circle" width="100">
+          </div>
+          <div class="col-sm-9">
+            Listed by <a href="">{{property.developer.name}}</a> 
+            <br> <strong>Abdul Madaki</strong>
+          </div>
+        </div>
+
+         <div class="row tablerow">
+               <div class="col-sm-6 dontwantpadding">
+                 <table class="table text-justify dontwantpadding">
+                  <tbody>
+                    <tr>
+                      <td class="noborderTop">₦/Sq. Ft.</td>
+                      <td class="text-right noborderTop"><strong>-</strong></td>
+                    </tr>
+                    <tr>
+                      <td>On AvetiZ</td>
+                      <td class="text-right"><strong>{{property.uploadDate|timesince}}</strong></td>
+                    </tr>
+                    <tr>
+                      <td>City</td>
+                      <td class="text-right"><strong>{{property.city}}</strong></td>
+                    </tr>
+
+                  </tbody>
+                </table>
+             </div>
+
+               <div class="col-sm-6 dontwantpadding">
+                 <table class="table text-justify dontwantpadding">
+                  <tbody>
+                    <tr>
+                      <td class="noborderTop">Year Built</td>
+                      <td class="text-right noborderTop"><strong>{{property.built}}</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Lot Size</td>
+                      <td class="text-right"><strong>{{property.lotsize}} Acres</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Type</td>
+                      <td class="text-right"><strong>{{property.types}}</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+             </div>
+            </div>
+            <hr>
+
+            <div class="row vtbtnRow">
+              <div class="col-sm-2"><a href=""><i class="fa fa-heart-o fa-2x" aria-hidden="true"></i></a></div>
+              <div class="col-sm-2"><a href=""><i class="fa fa-times fa-2x" aria-hidden="true"></i></a></div>
+              <div class="col-sm-4"><a target="_blank" href="/property/detail/{{property.id}}/" class="btn btn-default">View Details</a></div>
+              <div class="col-sm-4"><button class="btn btn-default">Go Tour</button></div>
+
+            </div>
+
+        </div>
+
+
+      </div>
+      {%endfor%}
+   	</div>
+  <!--End of Properties -->
+
+      </div>
+     
+
+
+      <!-- Hottest Selling Open Houses Least Expensive -->
+      <!--section class="featuredProps container-fluid">
+      <div class="row">
+      <div class="col-md-4">
+        <div class="col-md-12 fp fp1">
+        <p>Hottest Selling</p></div>
+      </div>
+      <div class="col-md-4"><div class="col-md-12 fp fp2"><p>Open Houses</p></div></div>
+      <div class="col-md-4"><div class="col-md-12 fp fp3"><p>Least Expensive</p></div></div>
+      </div>
+      </section-->
+
+      <!-- Pagination  -->
+      <nav aria-label="Page navigation" class="container-fluid">
+      <ul class="pagination">
+        {% if result.has_previous %}
+        <li>
+          <a href="?page={{result.previous_page_number}}" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        {% endif %}
+        {%for page in result.page_range %}
+       <li class="{% if result.number == page  %}active{% endif %}"><a href="?page={{page}}">{{ page }}</a></li>
+       {%  endfor %}
+        {% if result.has_next %}
+        <li>
+          <a href="?page={{result.next_page_number}}" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
+
+    <section class="whyavetiz container-fluid">
+      <hr>
+      <h4>Why Use AvetiZ?</h4>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus tincidunt sollicitudin. Donec sodales urna sed turpis facilisis, sed fermentum quam tincidunt. Ut nec condimentum nibh. Integer luctus viverra ligula, ut congue lorem. Sed quis arcu nisi. Etiam ornare suscipit mollis. Quisque at dapibus arcu, in consectetur massa. Etiam vitae pharetra massa. Nullam bibendum malesuada velit, sed vehicula nisl elementum eu.</p>
+      <hr>
+
+      {% if state %}
+      <h4>{{state}} Properties Statistics</h4>
+      <div class="row">
+        <div class="col-md-6"><p>Total Properties for Sale: </p></div> <div class="col-md-6"><strong>{{count}}</strong></div>
+      </div>
+      <div class="row">
+        <div class="col-md-6"><p>Median Property Value Estimate: </p></div> <div class="col-md-6"><strong class="js-price">₦ {{median|floatformat:"0"}}</strong></div>
+      </div>
+      <!--div class="row">
+        <div class="col-md-6"><p>Property Value Forecast: </p></div> <div class="col-md-6"><strong>{{projection}}%</strong></div>
+      </div-->
+
+      <hr>
+      <h4>Average Home Value By States in {{country}}</h4>
+      {% for value in averages %}
+      <div class="row">
+        <div class="col-md-6"><p>{{value.state}} </p></div> <div class="col-md-6"><strong class="js-price">₦{{value.value__avg|floatformat:"0"}}</strong></div>
+      </div>
+      {% endfor %}
+      
+      <hr>
+
+      <h4>{{state}} State Average Property/Cities</h4>
+       {% for values in cityaverage %}
+      <div class="row">
+        <div class="col-md-6"><p>{{values.city}} </p></div> <div class="col-md-6"><strong class="js-price">₦ {{values.value__avg|floatformat:"0"}}</strong></div>
+      </div>
+        {% endfor %}
+         <hr>
+        {% endif %}
+      
+      <p>
+        <strong>Disclaimer:</strong> Boundaries are supplied by AvetiZ and are subject to change. Check with the applicable district prior to making a decision based on these boundaries.</p>
+
+      <p><strong>About the ratings:</strong> AvetiZ ratings are based on a comparison of test results for all cities in the state. It is designed to be a starting point to help parents make baseline comparisons, not the only factor in selecting the right property. <a href = "#"> Learn more</a>
+      </p>
+
+    </section>
+
+ <!--    <section class="copyright container-fluid">
+    <div class="row linkRow">
+      <div class="col-md-12">
+        <a href="">About</a><a href="">How It Works</a><a href="">Privacy</a><a href="">Help</a><a href="">Investors</a> <a href="">Intelligent Investing</a><a href="">Partners</a>
+      </div>
+      </div>
+
+      <hr>
+      <div class="row">
+      	<div class="col-xs-3">
+      		<img src="https://flexiloans.com/wp-content/uploads/2015/09/store-google-play.png" class="img-responsive">
+      	</div> 
+      	<div class="col-xs-3">
+      		<img src="http://www.canadianblackbook.com/static/img/icons/button-get-it-on-apple.png" class="img-responsive">
+      	</div> 
+       <div class="col-md-3">
+      	<img src="https://www.magentocommerce.com/magento-connect/media/catalog/product/cache/9/image/468x300/9df78eab33525d08d6e5fb8d27136e95/a/p/app-store-link_1.png" class="img-responsive">
+      		
+      	</div>
+      </div>
+
+
+    <div class="row">
+      <hr>
+      <div class="col-md-3"><span><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></span><span><i class="fa fa-linkedin-square fa-2x" aria-hidden="true"></i></span><span><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></span></div>
+      <div class="col-md-9"><p><strong>AvetiZ is a service mark of AvetiZ Corp &copy; 2017. All Rights Reserved.</strong></p></div>
+        </div>
+    
+    </section> -->
+
+
+     
+  </div>
+  </div>
+
+	</div>
+	</div>
+	</section>
+{% if not feature %}
+  <section class="homePrices text-center">
+    <div class="container">
+    <div class="row">
+     <div class="col-md-10 col-md-offset-1">
+      <h2>Home Prices in Central Area, Abuja</h2>
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <div class="cardBox">
+           <div class="col-xs-10 text-left">
+            <span class="cpropertyType">1 Bedroom Homes</span>
+           </div>
+            <div class="col-xs-2 text-right"><i class="fa fa-info-circle fa-2x" aria-hidden="true"></i></div>
+            <div class="col-xs-12 text-left">
+             <span class="cListed">Listed Around:</span>
+            </div>
+            <div class="col-xs-12 priceBlock">
+           
+            <span class="cpropertyPrice js-price">₦{{onebedroom.value__avg|floatformat:"0"|add:'0'}}</span>  
+            <a class="btn btn-default btn-block" id="onehome" {% if not onebedroomcount%}disabled{% endif %} href="#">See {{onebedroomcount|add:'0'}} Homes</a>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="cardBox">
+            <div class="col-xs-10 text-left">
+            <span class="cpropertyType">2 Bedroom Homes</span>
+           </div>
+            <div class="col-xs-2 text-right"><i class="fa fa-info-circle fa-2x" aria-hidden="true"></i></div>
+            <div class="col-xs-12 text-left">
+             <span class="cListed">Listed Around:</span>
+            </div>
+            <div class="col-xs-12 priceBlock">
+            
+            <span class="cpropertyPrice js-price">₦{{twobedroom.value__avg|floatformat:"0"|add:'0'}}</span>
+            <a href="#" id="twohome" class="btn btn-default btn-block" {% if not twobedroomcount %}disabled{% endif %}>See {{twobedroomcount|add:'0'}} Homes</a>
+            </div>
+          </div>
+          
+        </div>
+        <div class="col-md-4 hidden-sm">
+          <div class="cardBox">
+            <div class="col-xs-10 text-left">
+            <span class="cpropertyType">3+ Bedroom Homes</span>
+           </div>
+            <div class="col-xs-2 text-right"><i class="fa fa-info-circle fa-2x" aria-hidden="true"></i></div>
+            <div class="col-xs-12 text-left">
+             <span class="cListed">Listed Around:</span>
+            </div>
+            <div class="col-xs-12 priceBlock">
+           
+            <span class="cpropertyPrice js-price">₦{{morebedroom.value__avg|floatformat:"0"|add:'0'}}</span>
+          
+            <a id="morehome" class="btn btn-default btn-block" {% if not morebedroomcount%}disabled{% endif %}>See {{morebedroomcount|add:'0'}} Homes</a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="col-sm-10 col-sm-push-1">
+        <p class="cmoreInfo">The asking price of homes for sale in Central Area has increased 9.5% since June last year, while the number of homes for sale has increased 36.4%. <a href="">See more.</a></p>
+      </div>
+
+
+      </div>
+      </div>
+    </div>  
+  </section>
+
+  <section class="estateTrends text-center">
+    <div class="container">
+    <div class="row">
+     <div class="col-md-10 col-md-offset-1">
+     <div class="col-xs-12">
+      <h2>Overview of  Real Estate Trends</h2>
+      <small>Calculated using the past 30 days</small>
+      
+      </div>
+        <div class="divider">
+        </div>
+            <div class="row">
+               <div class="col-sm-6">
+                 <table class="table text-justify">
+                  <tbody>
+                    <tr>
+                      <td class="noborderTop">Mean List Price</td>
+                      <td class="text-right noborderTop"><strong class="js-price">₦{{averageprice|floatformat:"0"|add:'0'}}</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Median List Price</td>
+                      <td class="text-right"><strong class="js-price">₦{{medianprice|floatformat:"0"|add:'0'}}</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Median Sale Price</td>
+                      <td class="text-right"><strong class="js-price">₦{{mediansale|floatformat:"0"|add:'0'}}</strong></td>
+                    </tr>
+                    
+                  </tbody>
+                </table>
+             </div>
+
+               <div class="col-sm-6">
+                         <table class="table text-justify">
+                  <tbody>
+                    <tr>
+                      <td>Number of Offers</td>
+                      <td class="text-right"><strong>{{noofoffer|add:'0'}}</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Avg. Down Payment</td>
+                      <td class="text-right"><strong class="js-price">₦{{avgdeposit.down_payt__avg|floatformat:"0"|add:'0'}}</strong></td>
+                    </tr>
+                    <tr>
+                      <td>Number of Homes Sold</td>
+                      <td class="text-right"><strong>{{pptysold.buyer__count|add:'0'}}</strong></td>
+                    </tr>
+                  </tbody>
+                </table>
+             </div>
+      </div>
+      </div>
+      </div>
+      </div> 
+  </section>
+{% endif %}
+<section class="jumbotron realEAgentsJumbo">
+  <div class="container-fluid">
+    <div class="row">
+     <div class="col-sm-5 col-sm-offset-2 eAgentsOverlay">
+      <div class="">
+      <div class="col-sm-12">
+        <h2>AvetiZ Real Estate Agents in Abuja</h2>
+        </div>
+        <div class="col-sm-11 col-sm-offset-1">
+         <div class="col-sm-4 colF">
+            <span class="boldNum">100</span><br><span class="recentD">Recent Deals in the Last Year</span>
+         </div>
+         <div class="col-sm-4 colF">
+           <span class="boldNum">4.9</span><br><span class="recentD">Avg. Customer Satisfaction</span>
+         </div>
+         <div class="col-sm-4">
+           <span class="boldNum">230</span><br><span class="recentD">Total Homes Closed</span>
+         </div>
+        </div>
+
+        <div class="col-sm-10 col-sm-offset-2">
+          <button class="btn btn-default btn-lg">Find an AvetiZ Real Estate Agent</button>
+        </div>
+        <div class="col-sm-12">
+          <p class="agentsnum">5 active AvetiZ agents in Abuja.</p>
+        </div>
+      </div>
+      </div>
+    </div>
+      </div>
+    </section>
+
+    <section class="container-fluid text-center transSection">
+      <div class="row">
+      <div class="col-sm-8 col-sm-offset-2">
+        <h2>Transportation in {{state}}</h2>
+
+           <div class="row">
+           <div class="col-sm-offset-1 col-sm-11">
+           
+             <div class="row">
+              <div class="col-xs-4">
+              <i class="fa fa-road fa-3x" aria-hidden="true"></i>
+              
+              </div>
+              <div class="col-xs-4">
+              <i class="fa fa-car fa-3x" aria-hidden="true" ></i>
+              
+              </div>
+              <div class="col-xs-4">
+              <i class="fa fa-train fa-3x" aria-hidden="true" ></i>
+              
+              </div>
+
+             </div>
+
+             <p class="nhmore">This area is very walkable — most errands can be accomplished on foot. It's a rider's paradise, with world-class public transportation. There is a minimal amount of infrastructure for biking.</p>
+           </div>
+           </div>
+           </div>
+          </div>
+    </section>
+
+    <!--section class="placePhotos text-center">
+      <div class="container">
+        <h2>Photos of {{state}}</h2>
+
+        <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <div class="col-sm-4">
+            <img class="img-responsive" src="https://pp3.walk.sc/w640h460/production/103105_robert_f_wagner_junior_park_new_york.jpg">
+          </div>
+          <div class="col-sm-4">
+            <img class="img-responsive" src="https://pp3.walk.sc/w640h460/production/88505_brass_monkey_new_york.jpg">
+          </div>
+          <div class="col-sm-4">
+            <img class="img-responsive" src="https://pp.walk.sc/w640h460/production/89481_the_high_line_new_york_.jpg">
+          </div>
+          <div class="col-sm-4">
+            <img class="img-responsive" src="https://pp2.walk.sc/w640h460/production/88520_federal_reserve_bank_of_new_york_new_york.jpg">
+          </div>
+          <div class="col-sm-4">
+            <img class="img-responsive" src="https://pp2.walk.sc/w640h460/production/88488_barclays_towers_new_york.jpg">
+          </div>
+          <div class="col-sm-4">
+            <img class="img-responsive" src="https://pp3.walk.sc/w640h460/production/103105_robert_f_wagner_junior_park_new_york.jpg">
+          </div>
+          </div>
+        </div>
+      </div>
+      
+    </section-->
+
+    <!-- Footer Section built by a backender -->
+
+<div class="divider-5"></div>
+<hr>
+
+<div class="container"> 
+<div class="footer">
+  
+    <div class="row">
+      
+      <div class="col-sm-4 more-space"><!--  1st column begins-->
+      
+        <!--h4 class="column-header text-justify head"> AvetiZ </h2-->
+        
+        
+        <div class="more-space">
+      
+        <div class="col-md-8 mavelous ">
+          
+          
+          <div class="form-group">
+            
+            <div id="google_translate_element"></div><script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,de,en,fr,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                    }
+                  </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+          </div>  
+      
+        </div>
+             
+        <div class="col-sm-8 mavelous currency">
+          
+          <div class="form-group">
+          
+            <select name="currency_code" class="form-control js-curr tolu">
+                <option value="NGN">NGN</option>
+                <option value="USD">USD</option>
+                <option value="BRL">EUR </option>
+                <option value="CAD">CAD</option>
+                <option value="CZK">GBP</option>
+                
+            </select>
+          
+          </div>
+    
+        </div>
+
+        
+        <div class="divider-10"></div>
+        
+        <div class="col-sm-12 ">
+        
+          <ul class="list-group text-justify  borderless list-inline">
+              <li class="list-group-item">Terms</li>
+              <li class="list-group-item">Privacy</li>
+              <li class="list-group-item">Site Map</li>
+              <li class="list-group-item"><span><i class="fa fa-facebook-official fa-1x"></i></span></li>
+              <li class="list-group-item"><i class="fa fa-linkedin fa-1x"></i></li>
+              <li class="list-group-item"><i class="fa fa-instagram fa-1x" aria-hidden="true"></i></li>
+          </ul>
+        
+        </div>
+        
+  
+        
+        
+        
+        </div><!--more space div add margin top -->
+        
+      
+      </div><!-- end of 1st column-->
+      
+      
+      <div class="col-sm-4 more-space"><!--  2nd column begins-->
+      
+         
+          
+          <div class="more-space">
+          
+           <h4 class="column-header text-justify head"> Sign Up </h4>
+          
+          <ul class="list-group text-justify mavelous borderless">
+            <li class="list-group-item">About</li>
+            <li class="list-group-item">Help</li>
+            <li class="list-group-item">Investors</li>
+            <li class="list-group-item">Partners</li>
+            <li class="list-group-item">Cities</li>
+            <li class="list-group-item">Policies</li>
+            <li class="list-group-item">Countries</li>
+            <!--li class="list-group-item">About Us</li-->
+            
+            
+            
+          </ul>
+          
+          </div>
+      
+      
+      </div><!-- end of 2nd column-->
+    
+    
+      
+      <div class="col-sm-3 more-space"><!--  3nd column begins-->
+      
+          
+          
+          
+          
+          <div class="more-space">
+      <h4 class="column-header text-justify head "> Help </h4>
+          <ul class="list-group text-justify mavelous borderless">
+            <li class="list-group-item">Safety</li>
+            <li class="list-group-item">Media</li>
+            <li class="list-group-item"><a href="how-it-works.html">How it Works</a></li>
+            <li class="list-group-item"><a href="intelligent-investing.html">Intelligent Investing</a></li>
+            <li class="list-group-item"><a href="insight.html">Insight</a></li>
+            <!--li class="list-group-item">Local Jobs</li-->
+          </ul>
+          
+          </div>
+      <form method="post" id="newesttform">
+       {% csrf_token %}
+      <input id="hiddenstate" name="hiddenstate" type='hidden'/>
+      <input id="hiddencity" name="hiddencity" type='hidden'/>
+      <input id="hiddencountry" name="hiddencountry" type='hidden'/>
+      <input id="hiddenquery" name="hiddenquery" type='hidden'/>
+      <input id="hiddenpropertytype" name="hiddentype" type="hidden"/>
+      <input id="hiddenbedno" name="hiddenbedno" type="hidden"/>
+      <input id="hiddenbathno" name="hiddenbathno" type="hidden"/>
+      <input id="hiddentypeoforder" name="hiddentypeoforder" type="hidden" />
+      <input id="hiddenonehome" name="onehome" type="hidden" />
+      <input id="hiddentwohome" name="twohome" type="hidden" />
+      <input id="hiddenmorehome" name="threehome" type="hidden" />
+      <input id="count" name="count" type="hidden"/>
+      </form>
+      
+      </div><!-- end of 3nd column-->
+      
+      <div class="col-sm-1 ">
+    <!--div class="divider-icon"></div-->
+        <div class="col-sm-push-3" >
+    
+                                 
+        <div id="search" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+    <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Lagos</h4>
+              </div>
+              <div class="modal-body">
+              
+                <p>We Use Location to customize the information you see.</p>
+                
+                <input type="text" id="pac-input" class="form-control" placeholder="Change your location"  />
+                <!--div class="pac-container"></div-->
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+        </div>
+      
+      </div>
+  </div><!--row -->
+  </div> 
+    
+  </div><!--container --> 
+  <hr>
+      
+   <div class="container">
+     <div class="row">
+      <div class="col-sm-6">
+      <span><p class="head">AvetiZ is a service mark of AvetiZ Corp &copy; 2017. All Rights Reserved.</p></span>
+      </div>
+      
+        <div class="col-sm-4 border-header"><!-- android ios download section -->
+           <ul class="list-group text-center borderless list-inline">
+            <li class="list-group-item"><img src="img/google2.png" class="img-responsive "></li>
+            <li class="list-group-item"><img src="img/ios2.png" class="img-responsive "></li> 
+          </ul>  
+       </div>
+       </div>
+     </div>
+
+<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="js/main.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="{% static 'home/js/money.js'%} "></script>
+<script src="{% static 'home/js/avetiz.js'%} "></script>
+<script type="text/javascript">
+        var locations = [
+    {% for property in result %}
+        {% if not forloop.first %},{% endif %}
+        [
+            "<strong>Title: </strong>{{ property.title}}<br> <strong>Price:</strong>₦{{property.value}}<br><strong>Bed no:</strong>{{property.bedroom}}, <strong>Bath No:</strong>{{property.bathroom}} <br><strong>Area:</strong> {{property.area}}sqft<br><strong>Address:</strong>{{property.street}} <br> <img src='https://photos.zillowstatic.com/p_a/IS2b9hk80mskqv0000000000.jpg'/>",
+            "{{ property.latitude}}",
+            "{{ property.longitude }}",
+            "{{property.id}}",
+
+
+        ]
+    {% endfor %}
+    ]
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: new google.maps.LatLng(locations[0][1], locations[0][2]),
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+          //mapTypeId: google.maps.MapTypeId.SATELLITE
+        });
+
+        var infowindow = new google.maps.InfoWindow();
+
+        var marker, i;
+
+        for (i = 0; i < locations.length; i++) {
+          marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map
+          });
+
+          google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+            return function() {
+              infowindow.setContent(locations[i][0]);
+              infowindow.open(map, marker);
+            }
+          })(marker, i));
+
+          google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+              window.open('/property/detail/'+locations[i][3]+'/')
+            }
+          })(marker, i));
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+			function initialize() {
+				var options = {
+								types: ['(cities)'],
+								radius: '2000',
+								location:'6.5243793,3.379205700000057',
+								componentRestrictions: {country: "us,ng"}
+								
+								};
+				var input = document.getElementById('id_search',options);
+				var autocomplete = new google.maps.places.Autocomplete(input);
+				autocomplete.addListener('place_changed', function () {
+				var place = autocomplete.getPlace();
+        var info = '';
+        place.address_components.forEach(function (item) {
+        if (item.types.indexOf("administrative_area_level_1") > -1) {
+            info += '<div>State: ' + item.long_name + '</div>';
+            document.getElementById("id_state").value= item.long_name;
+
+        }
+        if (item.types.indexOf("locality") > -1) {
+            info += '<div>City: ' + item.long_name + '</div>';
+            document.getElementById("id_city").value = item.long_name;
+        }
+
+        });
+        //console.log(info)
+
+
+			// place variable will have all the information you are looking for.
+				console.log(place.geometry['location'].lat());
+				console.log(place.geometry['location'].lng());
+				longitude=place.geometry['location'].lng();
+				latitude=place.geometry['location'].lat();
+				displayLocation(latitude,longitude);
+				
+				
+				});
+				displayLocation(latitude,longitude);
+				//form=document.getElementById('form-buscar');
+
+				//form.submit();
+				}
+		
+
+	
+
+      </script>
+
+<!-- Include the Google Maps API library - required for embedding maps -->
+<script>
+$(document).ready(function() {
+  //$(window).keydown(function(event){
+  //  if(event.keyCode == 13) {
+  //    event.preventDefault();
+  //   return false;
+ //   }
+ // });
+
+  $('select').change(function(event){
+  	form =document.getElementById('filter')
+  	$('#id_filterstate').val("{{usestate}}");
+  	$('#id_filtercity').val("{{city}}");
+  	$('#id_filtercountry').val("{{country}}");
+  	document.getElementById('hiddenquery').value='{{state}}';
+  	form.submit();
+  })
+
+  document.getElementById('hiddenstate').value='{{usestate}}';
+  document.getElementById('hiddencity').value='{{city}}';
+  document.getElementById('hiddencountry').value='{{country}}';
+  document.getElementById('hiddenquery').value='{{state}}';
+  document.getElementById('hiddenpropertytype').value='{{hiddenproperty}}'
+  document.getElementById('hiddenbedno').value='{{hiddenbedno}}'
+  document.getElementById('hiddenbathno').value='{{hiddenbathno}}'
+  document.getElementById('count').value='{{count}}'
+
+
+
+  $( "#newest").click(function( event ) {
+  event.preventDefault();
+  document.getElementById('hiddentypeoforder').value='newest';
+  document.getElementById('newesttform').submit();
+});
+  $('#homes').click(function(event){
+  	event.preventDefault();
+  	document.getElementById('hiddentypeoforder').value='homes';
+  	document.getElementById('newesttform').submit();
+  })
+
+  $('#cheapest').click(function(event){
+  	event.preventDefault();
+  	document.getElementById('hiddentypeoforder').value='cheap';
+  	document.getElementById('newesttform').submit();
+  })
+
+   $('#onehome').click(function(event){
+  	event.preventDefault();
+  	$(a['disabled=True'])
+  	document.getElementById('hiddenonehome').value='yes';
+  	document.getElementById('newesttform').submit();
+  })
+
+   $('#twohome').click(function(event){
+   	event.preventDefault();
+
+   	document.getElementById('hiddentwohome').value='yes';
+   	//document.getElementById('hiddenonehome').value='no';
+   	//document.getElementById('hiddenmorehome').value='no';
+   	document.getElementById('newesttform').submit();
+   })
+   $('#morehome').click(function(event){
+   	event.preventDefault();
+   	document.getElementById('hiddenmorehome').value='yes';
+   	document.getElementById('newesttform').submit();
+   })
+
+
+
+});
+
+function setType(a){
+	document.getElementById('id_propertytype').value=a;
+	document.getElementById('type').firstChild.nodeValue=a;
+}
+function setBath(a){
+	document.getElementById('id_bathno').value=a;
+	document.getElementById('bath').firstChild.nodeValue=a+'  Bath';
+}
+function setBed(a){
+	document.getElementById('id_bedno').value=a;
+	document.getElementById('bed').firstChild.nodeValue=a+'  Bed';
+}
+</script>
+</body>
+</html>

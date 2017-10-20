@@ -1,0 +1,297 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search | AvetiZ</title>
+	<meta charset = "utf-8">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content = "width = device width, initial-scale = 1">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{%static 'home/css/property.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-xlgrid.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{%static 'home/css/footer.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="shortcut icon" sizes="76x76" type="image/x-icon" href="img/avetiz4.png" />
+    <link rel="stylesheet" type="text/css" href="{%static 'home/css/rlisting.css' %}"/>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC8TvKHQ-rUklU5OsD6Oq73pMG1fJO9iR8"></script>
+     <!--script src="http://maps.google.com/maps/api/js?sensor=false"
+              type="text/javascript"></script-->
+
+</head>
+<body onload="geoFindMe()">
+	<nav class="first-search-nav navbar navbar-default navbar-fixed-top" style="background-color: #fff">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#"><strong>AvetiZ</strong></a>
+	    </div>
+
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+                      <li><a href="#">Buy</a></li>
+                      <li><a href="#about">Sell</a></li>
+                      <li><a href="how-it-works.html">How It Works</a></li>
+                      <li><a href="intelligent-investing.html">Intelligent Investing</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                      <li><a href="#">Sign Up</a></li>
+                      <li><a href="#">Help</a></li>
+                      
+                    </ul>	    
+                    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+
+	<!-- Second Navigation Bar -->
+
+	<div class="navbar navbar-default topnav searchtopnav navbar-static-top">
+	  <div class="container-fluid">
+	  	<div class="row">
+	  	<div class="col-md-12">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	       </button>
+		
+		</div>
+	     
+	    <div class="navbar-collapse collapse">
+	     
+	      {%include 'property/includes/top-search.html' %}
+
+	    </div><!--/.nav-collapse -->
+	    </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="jumbotron rjumbotron">
+		<div class="row">
+			<div class="col-md-12">
+			<h3 class="rheader">Recent Listing</h3><span class="rheadersupport">Recent listing in Lagos</span>
+			</div>
+		</div>
+		<div class="row">
+			{% for property in latest %}
+			<div class="col-sm-6 col-md-4 '' rproperty">
+			<a href="{% url 'property:detail' property.pk %} " class="rlink">
+				<div class="rdays">
+					<span>{{property.uploadDate|timesince}}</span>
+				</div>
+				<img class="img-responsive  rimg" src="{{property.thumbnail}}"/>
+				<div class="rimgcontent">
+				<div class="imgdownhead"><span><i class="fa fa-circle" style="color:#FF6347"></i> House For sale</span></div>
+				<div class="imgdown"><span class="rprice js-price">₦{{property.value}}</span><span class="rmini">{{property.bedroom}} bds <span class="rdot">.</span></span>  <span class="rmini">{{property.bathroom}} baths <span class="rdot">.</span></span><span class="rmini">{{property.area}} sqft <span class="rdot">.</span></span></div>
+				<div class="raddress"><span>{{property.street}}</span></div>
+				</div>
+			</a>
+			</div>
+			{% endfor %}
+
+		</div>
+		<ul class="pagination">
+		<li>
+          <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+		</ul>
+	</div>
+
+	<div class="divider-5"></div>
+<hr>
+
+<div class="container"> 
+<div class="footer">
+  
+    <div class="row">
+      
+      <div class="col-sm-4 more-space"><!--  1st column begins-->
+      
+        <!--h4 class="column-header text-justify head"> AvetiZ </h2-->
+        
+        
+        <div class="more-space">
+      
+        <div class="col-md-8 mavelous ">
+          
+          
+          <div class="form-group">
+            
+            <div id="google_translate_element"></div><script type="text/javascript">
+                function googleTranslateElementInit() {
+                    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,de,en,fr,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                    }
+                  </script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+          </div>  
+      
+        </div>
+             
+        <div class="col-sm-8 mavelous currency">
+          
+          <div class="form-group">
+          
+            <select name="currency_code" class="form-control js-curr tolu">
+                <option value="NGN">NGN</option>
+                <option value="AUD">USD</option>
+                <option value="BRL">EUR </option>
+                <option value="CAD">CAD</option>
+                <option value="CZK">GBP</option>
+                
+            </select>
+          
+          </div>
+    
+        </div>
+
+        
+        <div class="divider-10"></div>
+        
+        <div class="col-sm-12 ">
+        
+          <ul class="list-group text-justify  borderless list-inline">
+              <li class="list-group-item">Terms</li>
+              <li class="list-group-item">Privacy</li>
+              <li class="list-group-item">Site Map</li>
+              <li class="list-group-item"><span><i class="fa fa-facebook-official fa-1x"></i></span></li>
+              <li class="list-group-item"><i class="fa fa-linkedin fa-1x"></i></li>
+              <li class="list-group-item"><i class="fa fa-instagram fa-1x" aria-hidden="true"></i></li>
+          </ul>
+        
+        </div>
+        
+  
+        
+        
+        
+        </div><!--more space div add margin top -->
+        
+      
+      </div><!-- end of 1st column-->
+      
+      
+      <div class="col-sm-4 more-space"><!--  2nd column begins-->
+      
+         
+          
+          <div class="more-space">
+          
+           <h4 class="column-header text-justify head"> Sign Up </h4>
+          
+          <ul class="list-group text-justify mavelous borderless">
+            <li class="list-group-item">About</li>
+            <li class="list-group-item">Help</li>
+            <li class="list-group-item">Investors</li>
+            <li class="list-group-item">Partners</li>
+            <li class="list-group-item">Cities</li>
+            <li class="list-group-item">Policies</li>
+            <li class="list-group-item">Countries</li>
+            <!--li class="list-group-item">About Us</li-->
+            
+            
+            
+          </ul>
+          
+          </div>
+      
+      
+      </div><!-- end of 2nd column-->
+    
+    
+      
+      <div class="col-sm-3 more-space"><!--  3nd column begins-->
+      
+          
+          
+          
+          
+          <div class="more-space">
+      <h4 class="column-header text-justify head "> Help </h4>
+          <ul class="list-group text-justify mavelous borderless">
+            <li class="list-group-item">Safety</li>
+            <li class="list-group-item">Media</li>
+            <li class="list-group-item"><a href="how-it-works.html">How it Works</a></li>
+            <li class="list-group-item"><a href="intelligent-investing.html">Intelligent Investing</a></li>
+            <li class="list-group-item"><a href="insight.html">Insight</a></li>
+            <!--li class="list-group-item">Local Jobs</li-->
+          </ul>
+          
+          </div>
+      
+    
+      
+      </div><!-- end of 3nd column-->
+      
+      <div class="col-sm-1 ">
+    <!--div class="divider-icon"></div-->
+        <div class="col-sm-push-3" >
+    
+                                 
+        <div id="search" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+    <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Lagos</h4>
+              </div>
+              <div class="modal-body">
+              
+                <p>We Use Location to customize the information you see.</p>
+                
+                <input type="text" id="pac-input" class="form-control" placeholder="Change your location"  />
+                <!--div class="pac-container"></div-->
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+        </div>
+      
+      </div>
+  </div><!--row -->
+  </div> 
+    
+  </div><!--container --> 
+  <hr>
+      
+   <div class="container">
+     <div class="row">
+      <div class="col-sm-6">
+      <span><p class="head">AvetiZ is a service mark of AvetiZ Corp &copy; 2017. All Rights Reserved.</p></span>
+      </div>
+      
+        <div class="col-sm-4 border-header"><!-- android ios download section -->
+           <ul class="list-group text-center borderless list-inline">
+            <li class="list-group-item"><img src="img/google2.png" class="img-responsive "></li>
+            <li class="list-group-item"><img src="img/ios2.png" class="img-responsive "></li> 
+          </ul>  
+       </div>
+       </div>
+     </div>
+
+<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="{% static 'property/js/topsearch.js' %}"></script>
+<script type="text/javascript" src="{% static 'home/js/money.js' %}"></script>
+<script src="{% static 'home/js/avetiz.js' %}"></script>
+</body>
+</html>

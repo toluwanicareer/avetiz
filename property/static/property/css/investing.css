@@ -1,0 +1,465 @@
+body{
+	padding-top: 50px;
+	font-family: 'Lato',sans-serif !important;
+}
+
+/* First Jumbotron */
+
+.firstJumbo{
+	background: url(https://intelligent.schwab.com/public/file/SIP-SCHWAB-RESOURCE-IMAGES/home-hero-desktop-1400x753.jpg);
+	height: auto;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff !important;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+.firstJumbo h1{
+	font-weight: 300 !important;
+}
+
+.firstJumbo{
+	margin-bottom: 0 !important;
+}
+
+/*.firstJumbo:after {
+    content: url(https://intelligent.schwab.com/public/file/SIP-SCHWAB-RESOURCE-IMAGES/the-blue.png);
+    position: absolute;
+    left: 50%;
+    margin-left: -142px;
+    bottom: -250px;
+}*/
+
+.threeColHolder{
+	padding-top: 50px;
+	padding-bottom: 100px;
+}
+
+.threeCol1{
+	background-color: rgba(239, 234, 234,0.8); 
+	color:#464646;
+	height: 250px;
+	padding:40px 0;
+}
+
+.threeCol1 button{
+	background: none;
+	border:none;
+	color:#1B7BB3;
+	padding-bottom: 5px;
+}
+
+.threeCol1 button:hover{
+	background: #fff;
+	border:1px solid #464646;
+	color:#1B7BB3;
+}
+
+.threeCol2{
+	background-color: #1B7BB3;
+	height: 250px;
+	padding:40px 0;
+}
+
+.threeCol2 button{
+   color:#1B7BB3;
+   margin-top:23px;
+}
+
+.threeCol3{
+	background-color: rgba(239, 234, 234,0.8);
+	color:#464646;
+	height: 250px;
+	padding:40px 0;
+}
+
+.threeCol3 button{
+ 	background: none;
+ 	color:#1B7BB3;
+ 	border: none;
+}
+
+.threeCol3 button:hover{
+ 	background: none;
+ 	color:#1B7BB3;
+ 	border: none;
+ 	text-decoration: underline;
+}
+
+/* Second Jumbotron */
+
+.secondJumbo{
+	background: url(https://intelligent.schwab.com/public/file/SIP-SCHWAB-RESOURCE-IMAGES/home-blurred-BG-desktop-1400x542.jpg);
+	height: auto;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color:#333333 !important;
+	padding-top: 150px !important;
+}
+	
+.secondJumbo .fa{
+	color:#1B7BB3;
+}
+
+.secondJumbo .pSmallRow{
+	margin-top:50px;
+}
+
+.secondJumbo .pSmall{
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.secondJumbo .btnBlue{
+	color:#fff;
+	background-color: #1c84bc;
+	border:none;
+	font-weight: bold;
+	margin-bottom: 50px;
+}
+
+.secondJumbo .btnBlue:hover{
+	color:#fff;
+	background-color: #0E689C;
+	border:none;
+}
+
+.secondJumbo .btnWhite{
+	color:#0E689C;
+	background:none;
+	border:none;
+}
+
+.secondJumbo .btnWhite:hover{
+	background: #d8d4d4;
+	border:1px solid #464646;
+	color:#0E689C;
+}
+
+/*Third Section*/
+
+.thirdSection hr{
+  
+    margin-top:20px !important;
+}
+
+.thirdSection .pMedium{
+	font-size:24px;
+	font-weight: 300 !important;
+}
+
+.thirdSection .pSmall{
+	font-size: 16px;
+}
+
+/* Third Jumbotron*/
+
+.thirdJumbo{
+	background: url(https://intelligent.schwab.com/public/file/SIP-SCHWAB-RESOURCE-IMAGES/home-footer-BG-desktop-1400x950.jpg);
+	height: auto;
+	background-size: cover;
+	background-repeat: no-repeat;
+	color:#fff !important;
+	padding-bottom: 0 !important;
+	background-attachment: fixed;
+	background-position: center;
+}
+
+.thirdJumbo h1{
+	font-size: 80px !important;
+}
+
+.thirdJumbo .firstCol{
+	background-color: rgba(250, 250, 249, 0.9);
+	color:#464646;
+	height: 500px;
+	padding:40px;
+}
+
+.thirdJumbo .firstCol p{
+	font-size:15px;
+	font-weight: bold;
+	padding: 30px 0;
+}
+
+.thirdJumbo .firstCol .fa{
+	padding:15px 20px;
+	border:1px solid #737F8E;
+	width: 50px; height: 50px;
+	border-radius: 50%;
+}
+
+.thirdJumbo .firstCol .fa:hover{
+	border:1px solid #4d5a6b;
+	cursor: pointer;
+}
+
+.thirdJumbo .btnBlue{
+	color:#fff;
+	background-color: #1c84bc;
+	border:none;
+	font-weight: bold;
+	padding:15px;
+}
+
+.thirdJumbo .btnBlue:hover{
+	color:#fff;
+	background-color: #0E689C;
+	border:none;
+}
+
+.thirdJumbo .secondCol{
+	background-color: #202B3B;
+	padding:40px;
+	height: 500px;
+}
+
+.thirdJumbo .secondCol h2{
+	padding-bottom: 20px;
+}
+
+.thirdJumbo .secondCol .listRow{
+	margin-top:30px;
+}
+
+.diverBtn{
+	overflow:hidden;
+}
+
+
+/*For the Frequently Asked Questions (FAQ) Page*/
+
+.faqJumbo{
+	background-image:linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ), url(https://www.schwab.com/public/file?cmsid=CONTENT-RESOURCE-IMAGES-FAQ&amp;filename=SIP_FAQs_GettingStarted_768x400.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	color: #fff !important;
+	background-attachment: fixed;
+	background-position: center;
+	padding-top:200px !important;
+	padding-bottom: 50px !important;
+	border-bottom:3px solid #33C5FF;
+}
+
+.faqJumbo h2{
+	font-size: 50px !important;
+	font-weight: 300 !important;
+}
+
+.hg-boxes a:focus, .hg-boxes a:hover {
+    text-decoration: none;
+}
+.hg-boxes .wni-item {
+    height: 240px;
+    margin-bottom: 2em;
+    overflow: hidden;
+}
+.hg-boxes .wni-item:focus .wni-content, .hg-boxes .wni-item:hover .wni-content {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+.hg-boxes .wni-item .wni-photo {
+    position: relative;
+}
+.hg-boxes .wni-item .wni-photo img {
+    width: 120%;
+    position: absolute;
+}
+.hg-boxes .wni-item .wni-content {
+    position: relative;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    border-top: 3px solid #33c5ff;
+    background-color: #e0e0e0;
+    color: #181f26;
+    padding: 0 15px 15px;
+    min-height: 260px;
+    -webkit-transform: translate3d(0, 172px, 0);
+    transform: translate3d(0, 172px, 0);
+    font-size:15px;
+}
+.hg-boxes .wni-item .wni-content h2 {
+    margin-bottom: 20px;
+}
+.hg-boxes .wni-item .wni-content .tooltip-link {
+    background-color: transparent;
+    border: none;
+}
+
+.hg-boxes .fa{
+	color:#33C5FF;
+}
+
+.large-headline {
+    font-size: 21px;
+    font-weight: 700;
+}
+
+/* Get Started Page */
+.panel{
+	border:none !important;
+	margin-bottom: 10px !important;
+}
+
+.panel-default>.panel-heading {
+	background-color: #E6ECF2 !important;
+}
+
+.panel-body {
+    background: #f7f7f7;
+}
+
+.panel-heading .fa{
+	padding-right: 10px !important;
+}
+
+.fqback{
+	margin-bottom:30px;
+}
+
+.fqback span{
+	padding-left: 15px;
+}
+
+/*How it works page*/
+
+.navbar2{
+	height: auto;
+	background-color: #f9f9f9;
+	padding:10px 0;
+	border-bottom: 2px solid #21395B;
+}
+
+.navbar2 .title{
+	text-decoration: underline;
+	font-size: 15px;
+}
+
+.workJumbo{
+	background: url(https://ak5.picdn.net/shutterstock/videos/1094386/thumb/2.jpg);
+	height: auto;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	padding:60px 0;
+}
+
+.workJumbo h2{
+	font-weight: 900 !important;
+	font-size: 42px !important;
+	padding-bottom: 20px;
+}
+
+.workJumbo p{
+	font-weight: 300 !important;
+	font-size: 20px !important;
+	padding-bottom: 20px;
+}
+.workJumbo button{
+	background-color: #21395b !important;
+	font-weight: bold;
+	font-size: 15px;
+	padding: 12px 35px;
+	border:none;
+}
+
+.reasonsSection .title{
+	font-size: 25px;
+	color: #21395b;
+}
+
+.reasonsSection .number{
+  border:2px solid #ccc;
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  display: inline-block;
+  line-height: 1.6em;
+  margin-right: 5px;
+  text-align: center;
+  width: 1.6em; 
+}
+
+.reasonsSection .content{
+	font-size: 18px;
+	font-weight: 300;
+}
+
+.reasonsSection ul li{
+	font-size: 15px;
+	margin-bottom: 15px;
+}
+
+.reasonsSection .numberRow{
+	margin-bottom: 50px;
+	margin-top:50px;
+}
+
+.pricingTables{
+	padding:50px 0;
+}
+
+.pricingTables h2{
+	font-weight: 900 !important;
+	font-size: 42px !important;
+	padding-bottom: 20px;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+
+.pricingTables .pricingTp{
+	color:#787878;
+	margin-top:100px;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+.bluePanel{
+	background-color: #21395b;
+	color:#fff;
+}
+
+.call2action{
+	background-color:#21395b;
+	color: #fff;
+	padding:40px 0;
+}
+
+.call2action h2{
+	font-weight: 900 !important;
+	font-size: 42px !important;
+	padding-bottom: 20px;
+}
+
+.call2action p{
+	font-weight: 300 !important;
+	font-size: 20px !important;
+	padding-bottom: 20px;
+}
+.call2action button{
+	background-color: rgba(255, 255, 255, 0.0) !important;
+	color:#fff;
+	font-weight: bold;
+	font-size: 15px;
+	padding: 12px 35px;
+	border:2px solid #fff;
+}
+
+.call2action button:hover{
+	color:#fff !important;
+}
+
+
+/*Media Queries*/
+@media only screen and (max-width: 400px) {
+	/* Styles */
+	.reasonsSection .title{
+	font-size: 22px;
+}
+}

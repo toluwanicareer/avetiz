@@ -1,0 +1,662 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Properties | AvetiZ</title>
+	<meta charset = "utf-8">
+	  <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+	  <meta name = "viewport" content = "width = device width, initial-scale = 1">
+	  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+	  <link rel="stylesheet" type="text/css" href="{% static 'help/css/footer.css' %}">
+	  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	  <link rel="shortcut icon" sizes="76x76" type="image/x-icon" href="img/avetiz4.png" />
+	  <link rel="stylesheet" type="text/css" href="{% static 'property/css/property.css'%}"><!--remove when extend -->
+	  <script type= "text/javascript" src ="{% static 'property/js/countries.js' %}"></script>
+
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #21395b">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">AvetiZ Investing</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+
+      </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- Video Jumbotron -->
+
+<div class="jumbotron videoJumbo">
+
+  <div class="container">
+  	<div class="row">
+  		<div class="col-md-6">
+  			<h2>Find A Property at AvetiZ</h2>
+  		</div>
+  		  <div class="col-md-6">
+            <div class="quick-search">
+              <div class="row">
+                <form role="form">
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="form-group">
+                      <label for="country">Country</label>
+                      <select id="country" name="country" class="form-control">
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="bedroom">Bedroom</label>
+                      <select class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- break -->
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="form-group">
+                      <label for="location">State</label>
+                      <select id="state" name="state" class="form-control">
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="bathroom">Bathroom</label>
+                      <select class="form-control">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- break -->
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="form-group">
+                      <label for="status">Status</label>
+                      <select class="form-control">
+                        <option>For Sale</option>
+                        <option>For Lease</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- break -->
+                  <div class="col-md-6 col-sm-6 col-xs-6">
+                    <div class="form-group">
+                      <label for="type">Property Type</label>
+                      <select class="form-control">
+                        <option>Land</option>
+                        <option>Houses</option>
+                        <option>Estates</option>
+                      </select>
+                    </div>
+
+                  </div>
+
+                <div class="col-md-12 col-sm-12">
+					  <!-- For the Range Slider -->
+
+			      </div>
+
+                  <div class="col-md-12 col-sm-12"><input type="submit" name="submit" value="Search" class="btn btn-primary btn-lg btn-block"></div>
+
+                </form>
+              </div>
+            </div>
+          </div>
+  	</div>
+  
+  </div>
+
+</div>
+
+
+<!-- End of Video Jumbotron -->
+
+    <!-- begin:content -->
+    <div id="content">
+      <div class="container">
+        <div class="row">
+          <!-- begin:article -->
+          <div class="col-md-9 col-md-push-3">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="heading-title heading-title-alt">
+                  <h3>Property meeting the search criteria</h3>
+                </div>
+              </div>
+            </div>
+            <!-- begin:sorting -->
+            <div class="row sort">
+              <div class="col-md-4 col-sm-4 col-xs-3">
+                <a href="search.html" class="btn btn-primary"><i class="fa fa-th"></i></a>
+                <a href="search_list.html" class="btn btn-default"><i class="fa fa-list"></i></a>
+                <span>Show <strong>6</strong> of <strong>30</strong> result.</span>
+              </div>
+             <div class="col-md-8 col-sm-8 col-xs-9">
+                <form class="form-inline form"  id="form1" role="form" method="post">
+				{% csrf_token %}
+                  {% for field in form %}
+                  <div class="form-group">
+                    <label class="sr-only" for="sortby">{{field.label}}:</label>
+                    {{field}}
+                  </div>
+				  {% endfor %}
+                </form>
+              </div>
+            </div>
+            <!-- end:sorting -->
+
+            <!-- begin:product -->
+            <div class="row container-realestate">
+			{% for listing in property %}
+              <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="property-container">
+                  <div class="property-image">
+                    <img src="{{listing.thumbnail}}" alt="AvetiZ">
+                    <div class="property-price">
+                      <h4>{{listing.type}}</h4>
+                      <span>₦{{listing.value}}</span>
+                    </div>
+                    <div class="property-status">
+                      <span>{{listing.status}}</span>
+                    </div>
+                  </div>
+                  <div class="property-features">
+                    <span><i class="fa fa-home"></i>{{listing.area}}<sup>2</sup></span>
+                    <span><i class="fa fa-hdd-o"></i>{{listing.bed}}</span>
+                    <span><i class="fa fa-male"></i>{{listing.bed}}</span>
+                  </div>
+                  <div class="property-content">
+                    <h3><a href="#">{{listing.title}}</a> <small>AvetiZ</small></h3>
+                  </div>
+                </div>
+              </div>
+			  {% endfor %}
+              <!-- break -->
+             
+              <!-- break -->
+            </div>
+            <!-- end:product -->
+
+            <!-- begin:pagination -->
+			
+    
+            <div class="row">
+              <div class="col-md-12">
+                <ul class="pagination">
+				  {% if property.has_previous %}
+                  <li ><a href="?page={{ property.previous_page_number }}">&laquo Previous</a></li>
+				  {% endif %}
+				  {% for page in property.page_range %}
+                  <li class=""><a href="#">{{ page }}</a></li>
+				  {% endfor %}
+				  {% if property.has_next %}
+                  <li><a href="?page={{ property.next_page_number }}">&raquo Next</a></li>
+				  {% endif %}
+                </ul>
+              </div>
+            </div>
+            <!-- end:pagination -->
+          </div>
+          <!-- end:article -->
+
+          <!-- begin:sidebar -->
+          <div class="col-md-3 col-md-pull-9 sidebar">
+            <div class="widget widget-sidebar widget-white">
+              <div class="widget-header">
+                <h3>Recent Property</h3>
+              </div>    
+              <ul>
+                <li><a href="#">Luxury Villa</a></li>
+                <li><a href="#">Land In Central Park</a></li>
+                <li><a href="#">The Urban Life</a></li>
+                <li><a href="#">Luxury Office</a></li>
+                <li><a href="">Luxury Villa In Rego Park</a></li>
+              </ul>
+            </div>
+            <!-- break -->
+            <div class="widget widget-sidebar widget-white">
+              <div class="widget-header">
+                <h3>Property Type</h3>
+              </div>    
+              <ul class="list-check">
+                <li><a href="#">Office</a>&nbsp;(18)</li>
+                <li><a href="#">Office</a>&nbsp;(43)</li>
+                <li><a href="#">Shop</a>&nbsp;(31)</li>
+                <li><a href="#">Villa</a>&nbsp;(52)</li>
+                <li><a href="#">Apartment</a>&nbsp;(8)</li>
+                <li><a href="#">Single Family Home</a>&nbsp;(11)</li>
+              </ul>
+            </div>
+            <!-- break -->
+            <div class="widget widget-sidebar widget-white">
+              <div class="widget-header">
+                <h3>Hottest Selling Properties</h3>
+              </div>    
+              <ul>
+                <li><a href="#">AvetiZ Houses</a></li>
+                <li><a href="#">AvetiZ Land</a></li>
+                <li><a href="#">AvetiZ Homes</a></li>
+                <li><a href="#">AvetiZ Estate</a></li>
+              </ul>
+            </div>
+            <!-- break -->
+          </div>
+          <!-- end:sidebar -->
+          
+        </div>
+      </div>
+    </div>
+    <!-- end:content -->
+
+
+        <!-- begin:news -->
+    <div id="news">
+      <div class="container">
+        <div class="row">
+          <!-- begin:blog -->
+          <div class="col-md-4 col-sm-4">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="heading-title heading-title-sm bg-white">
+                  <h2>Latest Investment Articles</h2>
+                </div>
+              </div>
+            </div>
+            <!-- break -->
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="post-container post-noborder">
+                  <div class="post-img post-img-circle" style="background: url(http://cfile234.uf.daum.net/image/24113A3756ED7450300989);"></div>
+                  <div class="post-content">
+                    <div class="post-meta">
+                      <span><em>in</em> <a href="#" title="View all posts in berita utama" rel="category tag">AvetiZ Investing News</a></span>
+                      <span><em>July 7, 2017</em></span>
+                    </div>
+                    <div class="heading-title">
+                      <h2><a href="#"> fixie locavore, accusamus mcsweeney's marfa nulla single-origin</a></h2>
+                    </div>
+                  </div>
+                </div>
+                <!-- break -->
+
+                <div class="post-container post-noborder">
+                  <div class="post-img post-img-circle" style="background: url(http://cfile234.uf.daum.net/image/24113A3756ED7450300989);"></div>
+                  <div class="post-content">
+                    <div class="post-meta">
+                      <span><em>in</em> <a href="#" title="View all posts in berita utama" rel="category tag">AvetiZ Investing News</a></span>
+                      <span><em>July 7, 2017</em></span>
+                    </div>
+                    <div class="heading-title">
+                      <h2><a href="#">locavore, accusamus mcsweeney's marfa nulla single-origin</a></h2>
+                    </div>
+                  </div>
+                </div>
+                <!-- break -->
+
+                <div class="post-container post-noborder">
+                  <div class="post-img post-img-circle" style="background: url(http://cfile234.uf.daum.net/image/24113A3756ED7450300989);"></div>
+                  <div class="post-content">
+                    <div class="post-meta">
+                      <span><em>in</em> <a href="#" title="View all posts in berita utama" rel="category tag">AvetiZ Investing News</a></span>
+                      <span><em>July 7, 2017</em></span>
+                    </div>
+                    <div class="heading-title">
+                      <h2><a href="#">AvetiZ Investing News fixie locavore, accusamus </a></h2>
+                    </div>
+                  </div>
+                </div>
+                <!-- break -->
+
+              </div>
+            </div>
+            <!-- break -->
+
+          </div>
+          <!-- end:blog -->
+
+          <!-- begin:popular -->
+          <div class="col-md-4 col-sm-4">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="heading-title heading-title-sm bg-white">
+                  <h2>Popular Properties</h2>
+                </div>
+              </div>
+            </div>
+            <!-- break -->
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="post-container">
+                  <div class="post-img" style="background: url(http://mallorcapropertyhouse.co.uk/wp-content/uploads/2014/10/Beautiful_Luxury_House_with_Swiming_Pool_Wallpapers_for_Desktop.jpg);"><h3>For Rent</h3></div>
+                  <div class="post-content">
+                    <div class="post-meta">
+                      <span><i class="fa fa-home"></i> 7,000 m<sup>2</sup> / </span>
+                      <span><i class="fa fa-hdd-o"></i> 3 Bed / </span>
+                      <span><i class="fa fa-male"></i> 2 Bath / </span>
+                      <span><i class="fa fa-building-o"></i> 2 Floors / </span>
+                      <span><i class="fa fa-car"></i> 2 Garages / </span>
+                    </div>
+                    <div class="heading-title">
+                      <h2><a href="#">Residential - <span>₦300,000</span>/year</a></h2>
+                    </div>
+                  </div>
+                </div>
+                <!-- break -->
+
+                <div class="post-container">
+                  <div class="post-img" style="background: url(http://mallorcapropertyhouse.co.uk/wp-content/uploads/2014/10/Beautiful_Luxury_House_with_Swiming_Pool_Wallpapers_for_Desktop.jpg);"><h3>For Rent</h3></div>
+                  <div class="post-content">
+                    <div class="post-meta">
+                      <span><i class="fa fa-home"></i> 6,700 m<sup>2</sup> / </span>
+                      <span><i class="fa fa-hdd-o"></i> 4 Bed / </span>
+                      <span><i class="fa fa-male"></i> 2 Bath / </span>
+                      <span><i class="fa fa-building-o"></i> 1 Floors / </span>
+                      <span><i class="fa fa-car"></i> 2 Garages / </span>
+                    </div>
+                    <div class="heading-title">
+                      <h2><a href="#">Commercial - <span>₦700,000</span>/year</a></h2>
+                    </div>
+                  </div>
+                </div>
+                <!-- break -->
+
+                <div class="post-container post-noborder">
+                  <div class="post-img" style="background: url(http://mallorcapropertyhouse.co.uk/wp-content/uploads/2014/10/Beautiful_Luxury_House_with_Swiming_Pool_Wallpapers_for_Desktop.jpg);"><h3>For Sale</h3></div>
+                  <div class="post-content">
+                    <div class="post-meta">
+                      <span><i class="fa fa-home"></i> 5,000 m<sup>2</sup> / </span>
+                      <span><i class="fa fa-hdd-o"></i> 3 Bed / </span>
+                      <span><i class="fa fa-male"></i> 2 Bath / </span>
+                      <span><i class="fa fa-building-o"></i> 1 Floors / </span>
+                      <span><i class="fa fa-car"></i> 1 Garages / </span>
+                    </div>
+                    <div class="heading-title">
+                      <h2><a href="#">Villa - <span>₦800,000</span></a></h2>
+                    </div>
+                  </div>
+                </div>
+                <!-- break -->
+
+              </div>
+            </div>
+            <!-- break -->
+
+          </div>
+          <!-- end:popular -->
+
+          <!-- begin:agent -->
+          <div class="col-md-4 col-sm-4">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="heading-title heading-title-sm bg-white">
+                  <h2>Our Agents</h2>
+                </div>
+              </div>
+            </div>
+            <!-- break -->
+
+            <div class="row">
+              <div class="col-md-12">
+
+                <div class="post-container post-noborder">
+                  <div class="post-img" style="background: url(http://mallorcapropertyhouse.co.uk/wp-content/uploads/2014/10/Beautiful_Luxury_House_with_Swiming_Pool_Wallpapers_for_Desktop.jpg);"></div>
+                  <div class="post-content list-agent">
+                    <div class="heading-title">
+                      <h2><a href="#">Julia</a></h2>
+                    </div>
+                    <div class="post-meta">
+                      <span><i class="fa fa-envelope-o"></i> johndoe@domain.com</span><br>
+                      <span><i class="fa fa-phone"></i> +12345678</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- break -->
+
+                <div class="post-container post-noborder">
+                  <div class="post-img" style="background: url(http://mallorcapropertyhouse.co.uk/wp-content/uploads/2014/10/Beautiful_Luxury_House_with_Swiming_Pool_Wallpapers_for_Desktop.jpg);"></div>
+                  <div class="post-content list-agent">
+                    <div class="heading-title">
+                      <h2><a href="#">John Doe</a></h2>
+                    </div>
+                    <div class="post-meta">
+                      <span><i class="fa fa-envelope-o"></i> johndoe@domain.com</span><br>
+                      <span><i class="fa fa-phone"></i> +12345678</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- break -->
+
+                <div class="post-container post-noborder">
+                  <div class="post-img" style="background: url(http://mallorcapropertyhouse.co.uk/wp-content/uploads/2014/10/Beautiful_Luxury_House_with_Swiming_Pool_Wallpapers_for_Desktop.jpg);"></div>
+                  <div class="post-content list-agent">
+                    <div class="heading-title">
+                      <h2><a href="#">Jane Doe</a></h2>
+                    </div>
+                    <div class="post-meta">
+                      <span><i class="fa fa-envelope-o"></i> johndoe@domain.com</span><br>
+                      <span><i class="fa fa-phone"></i> +12345678</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- break -->
+
+              </div>
+            </div>
+            <!-- break -->
+
+          </div>
+          <!-- end:agent -->
+        </div>
+      </div>
+    </div>
+    <!-- end:news -->
+
+    <section class="propHSection">
+    	<div class="container">
+    		<div class="row">
+    		<div class="col-md-6"><img src="img/foot-brand.png" class="img img-responsive"></div>
+    		<div class="col-md-4 col-md-push-1"><p>Sell Your Property</p></div>
+    		<div class="col-md-2"><button class="btn btn-default btn-block">Start Here</button></div>
+    		</div>
+    	</div>
+    </section>
+
+    <!-- Footer Section built by a backender -->
+<div class="divider-5"></div>
+<hr>
+<div class="container"> 
+<div class="footer">
+  <div class="row">
+  <div class="col-sm-4 more-space"><!--  1st column begins-->
+      
+        <!--h4 class="column-header text-justify head"> AvetiZ </h2--> 
+        <div class="more-space">
+				<div class="col-md-8 mavelous ">
+					<div class="form-group">
+          <div id="google_translate_element"></div><script type="text/javascript">
+								function googleTranslateElementInit() {
+										new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,de,en,fr,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+										}
+									</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+					</div>	
+			
+				</div>
+             
+        <div class="col-sm-8 mavelous currency">
+          
+          <div class="form-group">
+          
+            <select name="currency_code" class="form-control tolu">
+                <option value="NGN">NGN</option>
+                <option value="AUD">USD</option>
+                <option value="BRL">EUR </option>
+                <option value="CAD">CAD</option>
+                <option value="CZK">GBP</option>
+                
+            </select>
+          
+          </div>
+    
+        </div>
+        <div class="divider-10"></div>
+        
+        <div class="col-sm-12 ">
+        
+          <ul class="list-group text-justify  borderless list-inline">
+              <li class="list-group-item">Terms</li>
+              <li class="list-group-item">Privacy</li>
+              <li class="list-group-item">Site Map</li>
+              <li class="list-group-item"><span><i class="fa fa-facebook-official fa-1x"></i></span></li>
+              <li class="list-group-item"><i class="fa fa-linkedin fa-1x"></i></li>
+              <li class="list-group-item"><i class="fa fa-instagram fa-1x" aria-hidden="true"></i></li>
+          </ul>
+        
+        </div>
+        </div><!--more space div add margin top -->
+
+      </div><!-- end of 1st column-->
+     <div class="col-sm-4 more-space"><!--  2nd column begins-->
+        <div class="more-space">
+          
+           <h4 class="column-header text-justify head"> Sign Up </h4>
+          
+          <ul class="list-group text-justify mavelous borderless">
+            <li class="list-group-item">About</li>
+            <li class="list-group-item">Help</li>
+            <li class="list-group-item">Investors</li>
+            <li class="list-group-item">Partners</li>
+            <li class="list-group-item">Cities</li>
+            <li class="list-group-item">Policies</li>
+            <li class="list-group-item">Countries</li>
+            <!--li class="list-group-item">About Us</li-->
+   
+          </ul>
+          
+          </div>
+
+      </div><!-- end of 2nd column-->        
+      <div class="col-sm-3 more-space"><!--  3nd column begins-->  
+          <div class="more-space">
+			<h4 class="column-header text-justify head "> Help </h4>
+          <ul class="list-group text-justify mavelous borderless">
+            <li class="list-group-item">Safety</li>
+            <li class="list-group-item">Media</li>
+            <li class="list-group-item">How it Works</li>
+            <li class="list-group-item">Intelligent Investing</li>
+            <li class="list-group-item"><a href="insight.html">Insight</a></li>
+            <!--li class="list-group-item">Local Jobs</li-->
+          </ul>
+          
+          </div>
+      
+    
+      
+      </div><!-- end of 3nd column-->
+      
+      <div class="col-sm-1 ">
+		<!--div class="divider-icon"></div-->
+        <div class="col-sm-push-3" >
+		
+                                 
+        <div id="search" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+    <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Lagos</h4>
+              </div>
+              <div class="modal-body">
+              
+                <p>We Use Location to customize the information you see.</p>
+                
+                <input type="text" id="pac-input" class="form-control" placeholder="Change your location"  />
+                <!--div class="pac-container"></div-->
+                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+        </div>
+      
+      </div>
+	</div><!--row -->
+	</div> 
+    
+  </div><!--container --> 
+  <hr>
+      
+   <div class="container">
+     <div class="row">
+      <div class="col-sm-6">
+      <span><p class="head">AvetiZ is a service mark of AvetiZ Corp &copy; 2017. All Rights Reserved.</p></span>
+      </div>
+      
+        <div class="col-sm-4 border-header"><!-- android ios download section -->
+           <ul class="list-group text-center borderless list-inline">
+            <li class="list-group-item"><img src="img/google2.png" class="img-responsive "></li>
+            <li class="list-group-item"><img src="img/ios2.png" class="img-responsive "></li> 
+          </ul>  
+       </div>
+       </div>
+     </div>
+
+<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="js/main.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+<script>
+
+$(document).ready(function(){
+    $("#id_order_by_column").on("change", function() {
+		var $form = document.getElementById('form1');
+		$form.submit();
+        
+    });
+	$("#id_limit").on("change", function() {
+		var $form = document.getElementById('form1');
+		$form.submit();
+        
+    });
+});
+
+populateCountries("country", "state"); // first parameter is id of country drop-down and second parameter is id of state drop-down
+populateCountries("country2");
+populateCountries("country2");
+
+
+
+</script>
+</html>

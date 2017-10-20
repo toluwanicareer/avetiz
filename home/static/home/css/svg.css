@@ -1,0 +1,18 @@
+svg path,
+svg rect{
+  fill: #FF6700;
+}
+.svgcontainer{
+	margin-top:20px;
+}
+
+.temphide{
+	display:none;
+}
+
+.animatefeature{
+	position:relative;
+}
+.table-condensed{
+	width:100%;
+}

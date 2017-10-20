@@ -1,0 +1,307 @@
+{% extends 'help/base.html' %}
+{% load static %}
+{% block content %}
+
+	
+<div class="col-sm-12 parallax-window" data-parallax="scroll" data-image-src="{% static 'help/img/paralaximg.jpg' %}" >
+	<section class="title">
+	
+	  <div class="container">
+	  <div class="row">
+		<div class="col-md-7 col-md-push-3 col-sm-12">
+		  <h3><span class="cName">Having troubles ?</span> We are here to help .
+		  </h3>  
+		</div>
+		</div>
+	  </div>
+	</section>
+  
+
+	<!-- Search Box Section -->
+	<div class="container">
+		<div class="row">
+			<form method="post">
+				{% csrf_token %}
+				<div class="col-md-7 col-md-push-3">
+					{% if error %}
+							<p><font color="#ff0000">{{error}}</font></p>
+							{% endif %}
+					<div class="custom-search-input help-search">
+						<div class="input-group col-md-12">
+							{{ form.help }}
+							<span class="input-group-btn help-search">
+								<button class="btn btn-info btn-lg" type="submit">
+									<i class="fa fa-search"></i>
+								</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			</form>
+			
+		</div>
+	</div>
+</div>
+
+<div class="divider-5"></div>
+
+<section><!--questions section-->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4"><!-- topic section -->
+				<ul class="list-group borderless padder">
+					<li class="list-group-item"><a id="buyer" href="#">Buyers</a></li>
+					<li class="list-group-item"><a id="dev" href="#">Developers</a></li>
+					<li class="list-group-item"><a id="prof" href="#">Professionals</a></li>
+					<li class="list-group-item"><a id="start" href="#">Getting Started</a></li>
+				</ul>
+			</div>
+			
+			<div class="col-md-8"><!--detail section -->
+				<div id="buyer-section"><!--buyer-->
+					<div class="panel panel-default">
+						<div class="panel-heading cat text-center"><i class="fa fa-exchange" aria-hidden="true"></i>Buyer</div>
+						<div class="panel-body body">
+							<div id="accordion" role="tablist" aria-multiselectable="true">
+							  
+							  <div class="card ">
+								<div class="card-header" role="tab" id="headingTwo">
+								  <h5 class="mb-0">
+									<a class="collapsed questions" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+									  <p><i class="fa fa-plus-square plus fa-1x locator"></i>What is this?</p>
+									</a>
+								  </h5>
+								</div>
+								<div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+								  <div class="card-block">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								  </div>
+								</div>
+							  </div>
+							  <div class="divider-8"></div>
+							  <div class="card ">
+								<div class="card-header" role="tab" id="headingThree">
+								  <h5 class="mb-0">
+									<a class="collapsed questions" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+									 <p><i class="fa fa-plus-square plus fa-1x locator"></i>How to do this?</p>
+									</a>
+								  </h5>
+								</div>
+								<div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+								  <div class="card-block">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								  </div>
+								</div>
+							  </div>
+							  <div class="divider-8"></div>
+							  <div class="card ">
+								<div class="card-header" role="tab" id="headingFour">
+								  <h5 class="mb-0">
+									<a class="collapsed questions" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+									 <p><i class="fa fa-plus-square plus fa-1x locator"></i>How to do this?</p>
+									</a>
+								  </h5>
+								</div>
+								<div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+								  <div class="card-block">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								  </div>
+								</div>
+							  </div>
+							  <div class="divider-8"></div>
+							  <div class="card ">
+								<div class="card-header" role="tab" id="headingFive">
+								  <h5 class="mb-0">
+									<a class="collapsed questions" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+									 <p><i class="fa fa-plus-square plus fa-1x locator"></i>How to do this?</p>
+									</a>
+								  </h5>
+								</div>
+								<div id="collapseFive" class="collapse" role="tabpanel" aria-labelledby="headingFive">
+								  <div class="card-block">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								  </div>
+								</div>
+							  </div>
+							  <div class="divider-8"></div>
+							  
+							  
+							</div>
+						</div>
+					</div>
+				</div><!--buyer section end-->
+				<div id="professionals-section"><!--professional-->
+					<div class="panel panel-default">
+						<div class="panel-heading cat text-center">Professionals</div>
+						<div class="panel-body body">
+							<div id="accordion" role="tablist" aria-multiselectable="true">
+							  
+							  <div class="card ">
+								<div class="card-header" role="tab" id="headingp1">
+								  <h5 class="mb-0">
+									<a class="collapsed questions" data-toggle="collapse" data-parent="#accordion" href="#collapsep1" aria-expanded="true" aria-controls="collapsep1">
+									  <i class="fa fa-plus-square plus fa-1x locator"></i>What is this?
+									</a>
+								  </h5>
+								</div>
+								<div id="collapsep1" class="collapse" role="tabpanel" aria-labelledby="headingp1">
+								  <div class="card-block">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								  </div>
+								</div>
+							  </div>
+							  <div class="divider-8"></div>
+							  <div class="card ">
+								<div class="card-header" role="tab" id="headingp2">
+								  <h5 class="mb-0">
+									<a class="collapsed questions" data-toggle="collapse" data-parent="#accordion" href="#collapsep2" aria-expanded="false" aria-controls="collapsep2">
+									 <i class="fa fa-plus-square plus fa-1x locator"></i>How to do this?
+									</a>
+								  </h5>
+								</div>
+								<div id="collapsep2" class="collapse" role="tabpanel" aria-labelledby="headingp2">
+								  <div class="card-block">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								  </div>
+								</div>
+							  </div>
+							  <div class="divider-8"></div>
+							  <div class="card ">
+								<div class="card-header" role="tab" id="headingp3">
+								  <h5 class="mb-0">
+									<a class="collapsed questions" data-toggle="collapse" data-parent="#accordion" href="#collapsep3" aria-expanded="false" aria-controls="collapsep3">
+									 <i class="fa fa-plus-square plus fa-1x locator"></i>How to do this?
+									</a>
+								  </h5>
+								</div>
+								<div id="collapsep3" class="collapse" role="tabpanel" aria-labelledby="headingp3">
+								  <div class="card-block">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								  </div>
+								</div>
+							  </div>
+							  <div class="divider-8"></div>
+							  <div class="card ">
+								<div class="card-header" role="tab" id="headingp4">
+								  <h5 class="mb-0">
+									<a class="collapsed questions" data-toggle="collapse" data-parent="#accordion" href="#collapsep4" aria-expanded="false" aria-controls="collapsep4">
+									 <i class="fa fa-plus-square plus fa-1x locator"></i>How to do this?
+									</a>
+								  </h5>
+								</div>
+								<div id="collapsep4" class="collapse" role="tabpanel" aria-labelledby="headingp4">
+								  <div class="card-block">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								  </div>
+								</div>
+							  </div>
+							  <div class="divider-8"></div>
+							  
+							  
+							</div>
+						</div>
+					</div>
+				</div><!--professional section end-->
+				<div id="start-section"><!--start-section-->
+					<div class="panel panel-default">
+						<div class="panel-heading cat text-center">Developers</div>
+						<div class="panel-body body">
+							<div id="accordion" role="tablist" aria-multiselectable="true">
+							  
+							  <div class="card ">
+								<div class="card-header" role="tab" id="headingd1">
+								  <h5 class="mb-0">
+									<a class="collapsed questions" data-toggle="collapse" data-parent="#accordion" href="#collapsed1" aria-expanded="true" aria-controls="collapsed1">
+									  <i class="fa fa-plus-square plus fa-1x locator"></i>What is this?
+									</a>
+								  </h5>
+								</div>
+								<div id="collapsed1" class="collapse" role="tabpanel" aria-labelledby="headingd1">
+								  <div class="card-block">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								  </div>
+								</div>
+							  </div>
+							  <div class="divider-8"></div>
+							</div>
+						</div>
+					</div>
+				</div><!--developer section end-->
+				<div id="developers-section"><!--developer-start-->
+					<div class="panel panel-default">
+						<div class="panel-heading cat text-center">Developers</div>
+						<div class="panel-body body">
+							<div id="accordion" role="tablist" aria-multiselectable="true">
+							  
+							  <div class="card ">
+								<div class="card-header" role="tab" id="headingTwo">
+								  <h5 class="mb-0">
+									<a class="collapsed questions" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+									 <i class="fa fa-plus-square plus fa-1x locator"></i> What is this?
+									</a>
+								  </h5>
+								</div>
+								<div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+								  <div class="card-block">
+									Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+								  </div>
+								</div>
+							  </div>
+							  
+							  
+							  
+							</div>
+						</div>
+					</div>
+				</div><!--start section end-->
+			</div>
+		</div>
+	</div>
+	</div>
+</section>
+<div class="divider-5"></div>
+<section>
+<div class="jumbotron text-center contactJumbo">
+<h3 class="text-center">We are here to Help</h1>
+<a class="btn btn-primary" href="/help/request/">Contact Us</a>
+</div>
+</section>
+<script>
+	document.getElementById("buyer").addEventListener("click", function(event){
+    event.preventDefault()
+	$('#developers-section').hide();
+	$('#professionals-section').hide();
+	$('#start-section').hide();
+	$('#buyer-section').show();
+	 $('#buyer').css('border-color', '#ff0000');
+});
+document.getElementById("prof").addEventListener("click", function(event){
+    event.preventDefault()
+	$('#developers-section').hide();
+	$('#buyer-section').hide();
+	$('#start-section').hide();
+	$('#professionals-section').show();
+});
+document.getElementById("dev").addEventListener("click", function(event){
+    event.preventDefault()
+	$('#buyer-section').hide();
+	$('#professionals-section').hide();
+	$('#start-section').hide();
+	$('#developers-section').show();
+});
+document.getElementById("start").addEventListener("click", function(event){
+    event.preventDefault()
+	$('#buyer-section').hide();
+	$('#professionals-section').hide();
+	$('#developers-section').hide();
+	$('#start-section').show();
+});
+
+            
+
+		
+	
+
+</script>
+{% endblock %}
+
