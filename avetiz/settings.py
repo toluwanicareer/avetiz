@@ -40,6 +40,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE=True
 ALLOWED_HOSTS = [
     '18.217.15.192',
     '127.0.0.1',
+    'ec2-18-217-15-192.us-east-2.compute.amazonaws.com',
 ]
 
 INSTALLED_APPS = [
