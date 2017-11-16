@@ -37,6 +37,11 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE=True
 #MEDIA_URL = '/media/'
 #MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+ALLOWED_HOSTS = [
+    '18.217.15.192',
+    '127.0.0.1',
+]
+
 INSTALLED_APPS = [
     #'csvimport.app.CSVImportConf',
     'home.apps.HomeConfig',
