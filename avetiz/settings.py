@@ -34,8 +34,8 @@ ALLOWED_HOSTS = ['192.168.8.102', 'localhost', '127.0.0.1','192.168.8.107']
 
 SESSION_EXPIRE_AT_BROWSER_CLOSE=True
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+#MEDIA_URL = '/media/'
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 INSTALLED_APPS = [
     #'csvimport.app.CSVImportConf',
@@ -139,6 +139,17 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+LOGIN_REDIRECT_URL = '/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+UPLOAD_TO = os.path.join(BASE_DIR, 'media/upload')
+IMAGEFIT_ROOT = ""
+DATA_UPLOAD_MAX_MEMORY_SIZE=50000000
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_USE_TLS = True
