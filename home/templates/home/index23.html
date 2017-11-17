@@ -4,7 +4,6 @@
 <head>
   <title>AvetiZ</title>
   <meta charset = "utf-8">
-
   <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
   <meta name = "viewport" content = "width = device width, initial-scale = 1">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,8 +16,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC8TvKHQ-rUklU5OsD6Oq73pMG1fJO9iR8" ></script>
   <script type="text/javascript" src="{% static 'home/js/money.js' %}"></script>
   <link rel="stylesheet" type="text/css" href="{% static 'property/css/lightslider.css' %}">
-  <link rel="stylesheet" type="=text/css" href="css/homeslider.css">
-  <!--script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC8TvKHQ-rUklU5OsD6Oq73pMG1fJO9iR8" ></script-->
 
 </head>
 <body onload="geoFindMe()">
@@ -53,34 +50,34 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<!--- Modal View Section--> 
-  <div id="search" class="modal fade" role="dialog">
-          <div class="modal-dialog">
+<!--- Modal View Section-->	
+	<div id="search" class="modal fade" role="dialog">
+					<div class="modal-dialog">
 
     <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" id="city">.</h4>
-              </div>
-              <div class="modal-body">
-              
-                <p>We Use Location to customize the information you see.</p>
-                
-                <input type="text" id="pac-input" class="form-control" placeholder="Change your location"  />
-                <!--div class="pac-container"></div-->
-                
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              </div>
-            </div>
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+								<h4 class="modal-title" id="city">.</h4>
+							</div>
+							<div class="modal-body">
+							
+								<p>We Use Location to customize the information you see.</p>
+								
+								<input type="text" id="pac-input" class="form-control" placeholder="Change your location"  />
+								<!--div class="pac-container"></div-->
+								
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
 
-          </div>
-  </div>
-  
-  <!--End of Model Section-->
-<main>
+					</div>
+	</div>
+	
+	<!--End of Model Section-->
+
 <section class="title">
   <div class="container">
   <div class="row">
@@ -95,7 +92,7 @@
 
 <!-- Search Box Section -->
 <div class="container">
-  <form method="post" action="/property/searchpage/">
+	<form method="post" action="/property/searchpage/">
 {% csrf_token %}
   <div class="row" autofocus>
         <div class="col-md-12">
@@ -143,137 +140,61 @@
 </div></div>
 {% include 'home/includes/partial_feature.html' %}
 </div>
+<!-- Knoledge Center Section -->
+<section class="kCenter">
+  
+ <div class = "container">
+  <div class="row">
+    <div class="col-md-12">
+     <h4><strong>Knowledge Center</strong></h4>
+     </div>
+    </div>
 
-
-<!-- Recently Listed Properties/Images Section -->
-
-
-
-<!-- Container (Services Section) -->
-
-<div class="container">
-<section class="signUp">
-
- <div class="row">
-   <h4><strong>Reasons to Purchase Properties</strong></h4>
+  <div class="row">
+    <div class="col-sm-4 firstBox"></div>
+    <div class="col-sm-4 secondBox"></div>
+    <div class="col-sm-4 thirdBox"></div>
   </div>
- 
-  <div class="row signupRow">
-    <div class="rSignUp text-center">
-    <div class="col-sm-4 col1">
-     <i class="fa fa-lock" aria-hidden="true"></i>
-      <h4>Safe</h4>
-      <p>In AvetiZ, the safety of your investment is our priority. We pre-vet every listed property for fraud, locations, pricing, and market trends. Every product is backed by iron-clad agreements writtent to protect all clients and their investments. Our legal team conducts thorough verification on our developers and only approves a project once it passes our rigorous standards.</p>
-    </div>
-    <div class="col-sm-4 col2">
-     <i class="fa fa-money" aria-hidden="true"></i>
-      <h4>Discounted Prices</h4>
-      <p>We reach out to you in discounted prices. We negotiate with developers on discount rates that cannot be gotten elsewhere and produce detailed analysis to enable investors make an informed investment decision. Our focus is on people who want to invest not only in Nigeria but other foreign countries. That is why we offer plenty of valued discounted opportunities and align our interest with investors.</p>
-      </div>
+  </div>
+</section>
 
-      <div class="col-sm-4 col3">
-     <i class="fa fa-search" aria-hidden="true"></i>
-      <h4 class="pReseachH">Proprietorship Research</h4>
-      <p class="pResearch">AvetiZ Propriety Research is deeply involved in portfolio diversification, client advisory and strategy analysis as we seek to optimize investment and satisfy our clients. Our proprietary systems are built around the principles of transparency, simplicity, satisfaction and verification just to ensure safe custody of your investments. At every stage of the investment process which includes the development of investment strategies, transaction underwriting and execution, construction of portfolio and capital allocation strategies, our system is structured with mechanism to guide you.</p>
-      </div>
+<section class="lenderSection">
+  <div class="container">
+    <p>Valuable tools and information</p>
+    <h2>Local Mortgage Lenders</h2>
+    <p>Get today's mortgage rates, connect with local lenders, and stay informed.</p>
+    <form action="{%url 'pmi:pmilist' %}">
+    <div class="input-group">
+      {{pmiform.pmi_query}}
+      {{pmiform.pmi_state}}
+      {{pmiform.pmi_country}}
+      {{pmiform.pmi_city}}
+     <span class="input-group-btn ">
+    <button class="btn btn-lg lenderBtn" type="submit" required><i class="fa fa-search" aria-hidden="true"></i> Find a Lender</button>
+      </span>
+    </div>
+    </form>
 
-      
-     
-    </div>
-    </div>
+  </div>
   
 </section>
-</div>
 
 
-<div class="container">
-<section class="videoSliderSection">
+<!-- Footer Cartoon Section -->
+
+ <section class="cartoon">
+ <div class="container">
     <div class="row">
-    <div class="col-xs-1 vFirstCol">
-    <button type="button" id="goToPrevSlide">...</button>
-    </div>
-    <div class="demo col-xs-10">
-              <div class="text-center">
-              <span class="demoHeadline">Know More, Move Faster</span>
-              </div>
-              <div class="item">     
-                  <div class="clearfix">
-                    <ul id="image-gallery" class="gallery list-unstyled cS-hidden"> 
-                        <li class="slist"> 
-                        <a href="#videomodal" data-toggle="modal">
-                            <img class="simg" src="https://qph.ec.quoracdn.net/main-qimg-f12cf4f70be1f06f7dea1558a5a31477-c"/>
-                        </a>
-                            <div class="margin20">
-                             <span class="stext">Turn one offer on your home into a biddin war</span>
-                             </div>
-                        </li>
-                        <li class="slist"> 
-                            <img class="simg" src="https://i.ytimg.com/vi/zPOtWigSsso/maxresdefault.jpg" />
-                            <div class="margin20">
-                              <span class="stext">Close without a hitch</span>
-                            </div>
-                        </li>
-                        <li class="slist"> 
-                            <img class="simg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Enjr4HoTcv-dtDSaZcc4cwgFaWfevQoilyS2Sn3IByHxXfvQ" />
-                            <div class="margin20">
-                             <span class="stext">Turn one offer on your home into a biddin war</span>
-                             </div>
-                        </li>               
-                        
-                    </ul>
-
-                </div>
-            </div>
-    </div>
-    <div id="videomodal" class="modal fade" role="dialog">
-           
-           <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">AvetiZ 3D Walkthrough</h4>
-              </div>
-              <div class="modal-body" id="expandmap">
-           <iframe src="http://www.youtube.com/embed/W7qWa52k-nE" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
-              </div>
-              <div class="modal-footer">
-              <p>Attract buyers with a 3D walkthrough of your home, included when you list with a AvetiZ agent </p>
-            </div>
-            
-          <div class="col-sm-6 col-sm-offset-2"></div>
-            </div>
-
-           </div>
-         </div>
-    <div class="col-xs-1 vSecondCol"> <button type="button" id="goToNextSlide">...</button></div>
-    </div>
-    </section>
-    </div>
-
-
-
-
-    <div class="container">
-    <section class="lenderSection">
-      <div class="row">
-        <p>Finance tools and information</p>
-        <h2>Mortgage Lenders</h2>
-        <p>Get current mortgage rates, connect with lenders in your area, and stay informed.</p>
-        <div class="input-group">
-          <input type="text" class="form-control" placeholder="City or Zip Code" aria-describedby="basic-addon2">
-          
-          <span class="input-group-btn ">
-           <button class="btn btn-lg lenderBtn" type="button"><i class="fa fa-search" aria-hidden="true"></i> Find a Lender</button>
-              </span>
-        </div>
-        </div>
-
-      </section>
+      <div class="col-md-12">
+          <h2><strong>AvetiZ</strong> has partners in <span class="cityIn" id="state"></span> and several locations around the World.</h2>
       </div>
+    </div>
+  </div>
+  <img src="https://www.blackstone.com/images/default-source/default-album/skyline-sketch-dark.png?sfvrsn=2" >
+ 
+</section>
 
-  </main>
+
 
 
 <!-- Footer Section built by a backender -->
@@ -292,33 +213,30 @@
         
         <div class="more-space">
       
-        <div class="col-md-8 mavelous ">
-          
-          
-          <div class="form-group">
-            
-            <div id="google_translate_element"></div>
-
-            <script type="text/javascript">
-                /*function googleTranslateElementInit() {
-                    new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,de,en,fr,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
-                    }*/
-                  </script>
-                  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-          </div>  
-      
-        </div>
+				<div class="col-md-8 mavelous ">
+					
+					
+					<div class="form-group">
+						
+						<div id="google_translate_element"></div><script type="text/javascript">
+								function googleTranslateElementInit() {
+										new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,de,en,fr,zh-CN', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+										}
+									</script><script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+					</div>	
+			
+				</div>
              
         <div class="col-sm-8 mavelous currency">
           
           <div class="form-group">
           
-            <select name="currency_code" class="form-control tolu">
+            <select name="currency_code" class="form-control js-curr tolu">
                 <option value="NGN">NGN</option>
-                <option value="AUD">USD</option>
-                <option value="BRL">EUR </option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR </option>
                 <option value="CAD">CAD</option>
-                <option value="CZK">GBP</option>
+                <option value="GBP">GBP</option>
                 
             </select>
           
@@ -329,7 +247,7 @@
         
         <div class="divider-10"></div>
         
-        <div class="col-sm-12 hidden-xs">
+        <div class="col-sm-12 ">
         
           <ul class="list-group text-justify  borderless list-inline">
               <li class="list-group-item">Terms</li>
@@ -353,6 +271,8 @@
       
       
       <div class="col-sm-4 more-space"><!--  2nd column begins-->
+      
+         
           
           <div class="more-space">
           
@@ -366,7 +286,9 @@
             <li class="list-group-item">Cities</li>
             <li class="list-group-item">Policies</li>
             <li class="list-group-item">Countries</li>
-            <!--li class="list-group-item">About Us</li--> 
+            <!--li class="list-group-item">About Us</li-->
+            
+            
             
           </ul>
           
@@ -384,7 +306,7 @@
           
           
           <div class="more-space">
-      <h4 class="column-header text-justify head "> Help </h4>
+			<h4 class="column-header text-justify head "> Help </h4>
           <ul class="list-group text-justify mavelous borderless">
             <li class="list-group-item">Safety</li>
             <li class="list-group-item">Media</li>
@@ -401,9 +323,9 @@
       </div><!-- end of 3nd column-->
       
       <div class="col-sm-1 ">
-    <!--div class="divider-icon"></div-->
+		<!--div class="divider-icon"></div-->
         <div class="col-sm-push-3" >
-    
+		
                                  
         <div id="search" class="modal fade" role="dialog">
           <div class="modal-dialog">
@@ -433,32 +355,16 @@
         </div>
       
       </div>
-  </div><!--row -->
-  </div> 
-  <div class="col-sm-12 hiddenTerms">
-        
-          <ul class="list-group text-justify  borderless list-inline">
-              <li class="list-group-item">Terms</li>
-              <li class="list-group-item">Privacy</li>
-              <li class="list-group-item">Site Map</li>
-              <li class="list-group-item"><span><i class="fa fa-facebook-official fa-1x"></i></span></li>
-              <li class="list-group-item"><i class="fa fa-linkedin fa-1x"></i></li>
-              <li class="list-group-item"><i class="fa fa-instagram fa-1x" aria-hidden="true"></i></li>
-          </ul>
-        
-        </div>
+	</div><!--row -->
+	</div> 
+    
   </div><!--container --> 
   <hr>
-
-
-  
-        
-  
       
    <div class="container">
      <div class="row">
       <div class="col-sm-6">
-      <span><p class="head">AvetiZ is a service mark of AvetiZ &copy; 2017. All Rights Reserved.</p></span>
+      <span><p class="head">AvetiZ is a service mark of AvetiZ Corp &copy; 2017. All Rights Reserved.</p></span>
       </div>
       
         <div class="col-sm-4 border-header"><!-- android ios download section -->
@@ -476,32 +382,8 @@
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="{% static 'home/js/avetiz.js' %}"></script>
-
-<script src="{% static 'home/js/lightslider.js' %} "></script>
-
 <script>
 
-      $(document).ready(function(){
-         var slider= $('#image-gallery').lightSlider({
-                    item:1,
-                    slideMargin: 0,
-                    speed:200,
-                    auto:false,
-                    loop:true,
-                    adaptiveHeight:true,
-                    controls: false,
-                    onSliderLoad: function() {
-                        $('#image-gallery').removeClass('cS-hidden');
-                    }  
-                });
-         $('#goToPrevSlide').on('click', function () {
-          slider.goToPrevSlide();
-          });
-        $('#goToNextSlide').on('click', function () {
-          slider.goToNextSlide();
-          });
-
-      })
 </script>
 </body>
 </html>
